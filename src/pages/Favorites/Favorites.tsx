@@ -1,9 +1,5 @@
-import './Favorites.scss'
+import './Favorites.scss';
 import React from 'react';
-const Favorites: React.FC = () => (
-    <section>
-        Favorites
-    </section>
-);
-  
+const Favorites: React.FC = () => <section>Favorites</section>;
+
 export default Favorites;

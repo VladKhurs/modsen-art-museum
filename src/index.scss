@@ -1,0 +1,17 @@
+@import '@/utils/reset.scss';
+@import '@/constants/variables.scss';
+
+:root {
+	font-family: Inter, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+
+	color: $color-black;
+	background-color: $background-app;
+}
+
+body {
+	min-width: 420px;
+	min-height: 100vh;
+}
