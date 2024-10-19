@@ -1,0 +1,49 @@
+@import '@/constants/variables.scss';
+
+.footer {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	padding: 32px 16px;
+
+	background: $color-white;
+	color: $color-black;
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 1280px;
+
+		.logo,
+		.modsen {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.logo {
+			p {
+				margin: 32px 0 0 10px;
+
+				span {
+					color: $color-orange;
+				}
+			}
+
+			img {
+				width: 43px;
+				height: 48px;
+			}
+		}
+
+		.modsen {
+			display: flex;
+			align-items: center;
+
+			img {
+				width: 164px;
+				height: 59px;
+			}
+		}
+	}
+}

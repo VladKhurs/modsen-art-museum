@@ -1,5 +1,22 @@
 import './Footer.scss';
 import React from 'react';
-const Footer: React.FC = () => <footer>Footer</footer>;
+import logo from '@/assets/logo.svg';
+import modsen from '@/assets/modsen.svg';
+
+const Footer: React.FC = () => (
+    <footer className='footer'>
+        <div className="container">
+			<div className="logo">
+				<img src={logo} alt="logo" />
+				<p>
+					Museum of <span>Art</span>
+				</p>
+			</div>
+			<div className="modsen">
+				<img src={modsen} alt="logo" />
+			</div>
+		</div>
+    </footer>
+)
 
 export default Footer;
