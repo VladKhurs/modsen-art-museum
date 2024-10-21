@@ -13,11 +13,12 @@ const App: React.FC = () => {
     const [query, setQuery] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [cards, setCards] = useState<Card[] | null>(null);
+	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
 
     return (
         <BrowserRouter>
             <Header />
-            <Context.Provider value={{ page, setPage, query, setQuery, isLoading, setIsLoading, cards, setCards }}>
+            <Context.Provider value={{ page, setPage, query, setQuery, isLoading, setIsLoading, cards, setCards, detailInfo, setDetailInfo }}>
                 <Routes>
                     <Route path="*" element={<Home />} />
                     <Route path="detail-info" element={<DetailInfo />} />

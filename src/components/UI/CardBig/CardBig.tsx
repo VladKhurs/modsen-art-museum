@@ -14,7 +14,8 @@ const CardBig: React.FC<CardBigProps> = ({ card }) => {
 
     return (
         <div className="card-big" onClick={() => {
-            navigate(`detail-info`);
+            sessionStorage.setItem('detailInfo', JSON.stringify(card));
+            navigate("detail-info");
         }}>
             <img 
                 className="image" 
