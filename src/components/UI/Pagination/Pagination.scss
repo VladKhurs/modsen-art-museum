@@ -1,0 +1,44 @@
+@import '@/constants/variables.scss';
+
+.pagination {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+	justify-content: end;
+	position: relative;
+	top: -38px;
+
+	.arrow-left {
+		margin-right: 0px;
+	}
+
+	.arrow-right {
+		margin-left: 0px;
+	}
+
+	.number {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 4px;
+		font-size: 18px;
+		font-weight: 300;
+	}
+
+	.arrow-left,
+	.arrow-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+	}
+
+	.number-special {
+		background-color: $color-danger;
+		color: $color-white;
+		font-weight: 600;
+	}
+}
