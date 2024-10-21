@@ -1,8 +1,8 @@
 import './CardBig.scss';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import favorites from '@/assets/favorites-danger.svg';
 import { Card } from '@/constants/types';
+import ButtonFavorite from '../ButtonFavorite/ButtonFavorite';
 
 interface CardBigProps {
     card: Card;
@@ -28,9 +28,7 @@ const CardBig: React.FC<CardBigProps> = ({ card }) => {
                     <p className="text-special">{artist_title === null ? 'Unknown Artist' : artist_title}</p>
                     <p className="text-small">{is_public_domain ? 'Public' : 'Not Public'}</p>
                 </div>
-                <button>
-                    <img src={favorites} alt="favorites" />
-                </button>
+                <ButtonFavorite card={card} />
             </div>
         </div>
     );

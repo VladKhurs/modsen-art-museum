@@ -1,0 +1,18 @@
+@import '@/constants/variables.scss';
+
+button {
+    min-width: 59px;
+    min-height: 59px;
+    max-width: 59px;
+    max-height: 59px;
+    border-radius: 100%;
+    background-color: #f9f9f9;
+}
+
+.button--active {
+    background-color: #ffedda;
+}
+
+.button {
+    background-color: #f9f9f9;
+}

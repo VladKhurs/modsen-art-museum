@@ -5,23 +5,29 @@
 	justify-content: center;
 	padding: 120px 16px 152px;
 
-    .title {
-        text-align: left;
-        font-weight: 400;
-        font-size: 32px;
-    }
-
     .container {
         display: flex;
 		flex-direction: row;
 		width: 1280px;
         text-align: left;
 
-        img {
-            width: 497px;
-            height: 570px;
+        .image-wrap {
+            display: flex;
+            flex-direction: row;
+
+            .image {
+                width: 497px;
+                height: 570px;
+            }
             margin-right: 80px;
+
+            button {
+                position: relative;
+                top: 16px;
+                right: 75px;
+            }
         }
+
         .info {
             display: flex;
             flex-direction: column;
