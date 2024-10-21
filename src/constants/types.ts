@@ -20,4 +20,6 @@ export interface ContextProps {
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
     cards: Card[] | null;
     setCards: React.Dispatch<React.SetStateAction<Card[] | null>>;
+	detailInfo: Card | null;
+    setDetailInfo: React.Dispatch<React.SetStateAction<Card | null>>;
 }
