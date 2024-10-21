@@ -12,6 +12,7 @@ dist-ssr
 *.local
 *.lock
 bun.lockb
+.eslintcache
 
 .idea
 .DS_Store

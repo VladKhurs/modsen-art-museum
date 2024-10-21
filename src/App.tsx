@@ -9,25 +9,41 @@ import { Context } from './store/Context';
 import { Card } from './constants/types';
 
 const App: React.FC = () => {
-    const [page, setPage] = useState<number>(1);
-    const [query, setQuery] = useState<string>('');
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [cards, setCards] = useState<Card[] | null>(null);
+	const [page, setPage] = useState<number>(1);
+	const [query, setQuery] = useState<string>('');
+	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [cards, setCards] = useState<Card[] | null>(null);
 	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
+	if (sessionStorage.getItem('favorites') === null) {
+		sessionStorage.setItem('favorites', JSON.stringify([]));
+	}
 
-    return (
-        <BrowserRouter>
-            <Header />
-            <Context.Provider value={{ page, setPage, query, setQuery, isLoading, setIsLoading, cards, setCards, detailInfo, setDetailInfo }}>
-                <Routes>
-                    <Route path="*" element={<Home />} />
-                    <Route path="detail-info" element={<DetailInfo />} />
-                    <Route path="favorites" element={<Favorites />} />
-                </Routes>
-            </Context.Provider>
-            <Footer />
-        </BrowserRouter>
-    );
-}
+	return (
+		<BrowserRouter>
+			<Header />
+			<Context.Provider
+				value={{
+					page,
+					setPage,
+					query,
+					setQuery,
+					isLoading,
+					setIsLoading,
+					cards,
+					setCards,
+					detailInfo,
+					setDetailInfo,
+				}}
+			>
+				<Routes>
+					<Route path="*" element={<Home />} />
+					<Route path="detail-info" element={<DetailInfo />} />
+					<Route path="favorites" element={<Favorites />} />
+				</Routes>
+			</Context.Provider>
+			<Footer />
+		</BrowserRouter>
+	);
+};
 
 export default App;
