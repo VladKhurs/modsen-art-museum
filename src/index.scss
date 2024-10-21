@@ -2,11 +2,11 @@
 @import '@/constants/variables.scss';
 
 :root {
-	font-family: Inter, Arial, sans-serif;
+	font-family: Lexend Deca ,Inter, Arial, sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 400;
-
+	line-height: 27px;
 	color: $color-black;
 	background-color: $background-app;
 }
@@ -14,4 +14,50 @@
 body {
 	min-width: 420px;
 	min-height: 100vh;
+}
+
+.text-special {
+	color: $color-orange;
+}
+
+.h1 {
+	font-size: 64px;
+	font-weight: bold;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 80px;
+}
+
+.h2 {
+	font-size: 32px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 40px;
+}
+
+.text-small {
+	font-size: 15.35px;
+	line-height: 27px;
+}
+
+.text-medium {
+	font-size: 17.54px;
+	line-height: 27px;
+}
+
+.card-favorite {
+	button {
+		background-color: rgba($color: $background-orange, $alpha: 0.3);
+	}
+}
+
+@keyframes background-animation {
+    0%   { background-color: $border-card; }
+    50%  { background-color: rgba($color-black, 0.25); }
+    100% { background-color: $border-card; }
+}
+
+.load {
+    background-color: $border-card;
+    animation: background-animation 1.2s infinite ease-in-out;
 }

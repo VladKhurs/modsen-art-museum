@@ -3,7 +3,6 @@
 .header {
 	display: flex;
 	justify-content: center;
-	width: 100vw;
 	padding: 32px 16px;
 
 	background: linear-gradient(
@@ -27,6 +26,12 @@
 		}
 
 		.logo {
+			img {
+				width: 43px;
+				height: 48px;
+				margin-top: 4px;
+			}
+
 			p {
 				margin: 32px 0 0 10px;
 
@@ -34,24 +39,24 @@
 					color: $color-orange;
 				}
 			}
-
-			img {
-				width: 43px;
-				height: 48px;
-			}
 		}
 
-		.favorites {
+		.links {
 			display: flex;
 			align-items: center;
-
+			gap: 24px;
+			
 			img {
-				width: 18px;
-				height: 18px;
+				width: 24px;
+				height: 24px;
 			}
 
-			p {
-				margin: 3.5px 0 1.5px 4px;
+			.link {
+				margin-left: 4px;
+				font-weight: 300;
+				font-size: 18px;
+				font-family: Inter, Arial, sans-serif;
+				color: $color-white;
 			}
 		}
 	}

@@ -21,13 +21,14 @@
 
 		"baseUrl": "./",
 		"paths": {
-			"@/assets/*": ["*", "src/assets/*"],
-			"@/components/*": ["*", "src/components/*"],
-			"@/constants/*": ["*", "constants/*"],
-			"@/pages/*": ["*", "src/pages/*"],
-			"@/public/*": ["*", "public/*"],
-			"@/store/*": ["*", "store/*"],
-			"@/utils/*": ["*", "utils/*"]
+			"@/*": ["src/*"],
+			"@/assets/*": ["src/assets/*"],
+			"@/components/*": ["src/components/*"],
+			"@/constants/*": ["src/constants/*"],
+			"@/pages/*": ["src/pages/*"],
+			"@/public/*": ["src/public/*"],
+			"@/store/*": ["src/store/*"],
+			"@/utils/*": ["src/utils/*"],
 		}
 	},
 	"include": ["src"],

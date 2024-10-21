@@ -1,0 +1,17 @@
+@import '@/constants/variables.scss';
+
+.gallery {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+	margin-top: 120px;
+
+	.cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		gap: auto;
+	}
+}

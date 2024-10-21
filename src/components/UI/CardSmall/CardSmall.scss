@@ -1,0 +1,61 @@
+@import '@/constants/variables.scss';
+
+.card-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 16px;
+    gap: 16px;
+    width: 416px;
+    height: 130px;
+    padding: 16px;
+    background-color: $color-white;
+    border: 1px solid $border-card;
+
+    .about {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+
+        .image {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .text {
+            padding: 4px 0;
+            .text-medium {
+                font-weight: 500;
+                max-width: 219px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .text-small {
+                margin-top: 8px;
+                font-weight: 700;
+            }
+
+            .text-special {
+                line-height: 27px;
+                font-weight: 400;
+                max-width: 219px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    button {
+        width: 59px;
+        height: 59px;
+        border-radius: 100%;
+        background-color: $background-gray;
+    }
+}
+
