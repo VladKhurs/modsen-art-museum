@@ -17,7 +17,7 @@ const Pagination: React.FC = () => {
 		<div className="pagination">
 			<div className="dropdown">
 				<button onClick={handleDropdownClick}>
-					Paginage by {limit === 5 ? 5 : 3}
+					Paginate by {limit === 5 ? 5 : 3}
 				</button>
 				{dropdownOpen && (
 					<div>

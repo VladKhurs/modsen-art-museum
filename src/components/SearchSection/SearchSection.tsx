@@ -1,10 +1,11 @@
 import './SearchSection.scss';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { z } from 'zod';
 import search from '@/assets/search.svg';
 import { Context } from '@/store/Context';
 import { ContextProps } from '@/constants/types';
+import { useDebounce } from '@/utils/functions';
 
 const searchSchema = z.object({
 	query: z.string().min(1, { message: 'Search query cannot be empty' }),
@@ -20,18 +21,29 @@ const validate = (values: { query: string }) => {
 const SearchSection: React.FC = () => {
 	const { query, setQuery, setIsLoading } = useContext(Context) as ContextProps;
 	const [isEmpty, setIsEmpty] = useState(false);
-  const [lastQuery, setLastQuery] = useState(query);
+	const [lastQuery, setLastQuery] = useState(query);
+	const [inputValue, setInputValue] = useState('');
+
+	const debouncedInputValue = useDebounce(inputValue, 750);
+
+	useEffect(() => {
+		if (debouncedInputValue && inputValue !== lastQuery) {
+			setQuery(inputValue)
+			setIsLoading(true);
+		}
+	}, [debouncedInputValue]);
+
 	const formik = useFormik({
 		initialValues: {
 			query: '',
 		},
 		validate,
 		onSubmit: (values) => {
-      if (values.query !== lastQuery) {
-        setQuery(values.query);
-        setIsLoading(true);
-        setLastQuery(values.query); 
-      }
+			if (values.query !== lastQuery) {
+				setQuery(values.query);
+				setIsLoading(true);
+				setLastQuery(values.query);
+			}
 		},
 	});
 
@@ -43,6 +55,11 @@ const SearchSection: React.FC = () => {
 			setIsEmpty(false);
 		}
 	};
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		formik.handleChange(e);
+		setInputValue(e.target.value);
+	};	
 
 	return (
 		<section className="search-section">
@@ -58,7 +75,7 @@ const SearchSection: React.FC = () => {
 							? 'Search query cannot be empty'
 							: 'Search Art, Artist, Work...'
 					}
-					onChange={formik.handleChange}
+					onChange={handleChange}
 					onBlur={formik.handleBlur}
 					value={formik.values.query}
 				/>
