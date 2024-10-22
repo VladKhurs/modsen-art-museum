@@ -6,4 +6,3 @@ export const addUnique = (arr: Card[], newItem: Card) => {
         sessionStorage.setItem('favorites', JSON.stringify(arr));
     }
 };
-
