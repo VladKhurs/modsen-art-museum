@@ -9,10 +9,10 @@
 
 	.cards {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
-		justify-content: space-between;
 		width: 100%;
-		gap: auto;
+		column-gap: 59.5px;
 	}
 
 	.text-center {

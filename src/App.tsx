@@ -10,6 +10,7 @@ import { Card } from './constants/types';
 
 const App: React.FC = () => {
 	const [page, setPage] = useState<number>(1);
+	const [limit, setLimit] = useState<number>(3);
 	const [query, setQuery] = useState<string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [cards, setCards] = useState<Card[] | null>(null);
@@ -33,6 +34,8 @@ const App: React.FC = () => {
 					setCards,
 					detailInfo,
 					setDetailInfo,
+					limit,
+					setLimit
 				}}
 			>
 				<Routes>

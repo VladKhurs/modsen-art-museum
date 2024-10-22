@@ -14,6 +14,8 @@ export interface Card {
 export interface ContextProps {
     page: number;
     setPage: React.Dispatch<React.SetStateAction<number>>;
+    limit: number;
+    setLimit: React.Dispatch<React.SetStateAction<number>>;
     query: string;
     setQuery: React.Dispatch<React.SetStateAction<string>>;
     isLoading: boolean;

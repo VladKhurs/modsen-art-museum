@@ -8,7 +8,7 @@ import { ContextProps } from '@/constants/types';
 import { Card } from '@/constants/types';
 
 const Gallery: React.FC = () => {
-    const { isLoading, cards } = useContext(Context) as ContextProps;
+    const { isLoading, cards, limit } = useContext(Context) as ContextProps;
 
     return (
         <section className="gallery">
@@ -18,7 +18,7 @@ const Gallery: React.FC = () => {
             </div>
             {isLoading ? (
                 <div className="cards">
-                    {Array(3).fill(null).map((_, i) => (
+                    {Array(limit).fill(null).map((_, i) => (
                         <CardBigLoader key={i} />
                     ))}
                 </div>
