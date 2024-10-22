@@ -1,6 +1,6 @@
 import './OtherWorks.scss';
 import React, { useEffect, useState } from 'react';
-import { fetchByPageLimitQuery } from '@/utils/http/fetchRequests';
+import { fetchByPageLimitQuerySort } from '@/utils/http/fetchRequests';
 import CardSmall from '@/components/UI/CardSmall/CardSmall';
 import CardSmallLoader from '@/components/UI/CardSmall/CardSmallLoader';
 import { Card } from '@/constants/types';
@@ -12,7 +12,7 @@ const OtherWorks: React.FC = () => {
     useEffect(() => {
         const fetchCards = async () => {
             try {
-                const cardsFetched = await fetchByPageLimitQuery({ page: 20, limit: 9 });
+                const cardsFetched = await fetchByPageLimitQuerySort({ page: 20, limit: 9 });
                 if (cardsFetched) {
                     setCards(cardsFetched);
                     setIsLoading(false);

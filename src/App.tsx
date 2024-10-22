@@ -6,12 +6,13 @@ import Favorites from '@/pages/Favorites/Favorites';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { Context } from './store/Context';
-import { Card } from './constants/types';
+import { Card, Sort } from './constants/types';
 
 const App: React.FC = () => {
 	const [page, setPage] = useState<number>(1);
 	const [limit, setLimit] = useState<number>(3);
 	const [query, setQuery] = useState<string>('');
+	const [sort, setSort] = useState<Sort | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [cards, setCards] = useState<Card[] | null>(null);
 	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
@@ -28,6 +29,8 @@ const App: React.FC = () => {
 					setPage,
 					query,
 					setQuery,
+					sort, 
+					setSort,
 					isLoading,
 					setIsLoading,
 					cards,
