@@ -8,14 +8,14 @@ import OtherWorks from '@/components/OtherWorks/OtherWorks';
 import { ContextProps } from '@/constants/types';
 
 const Home: React.FC = () => {
-	const { query, setIsLoading, setCards, page } = useContext(
+	const { query, setIsLoading, setCards, page, limit } = useContext(
 		Context
 	) as ContextProps;
 
 	useEffect(() => {
 		const fetchCards = async () => {
 			try {
-				const cardsFetched = await fetchByPageLimitQuery({ page, query });
+				const cardsFetched = await fetchByPageLimitQuery({ page, limit, query });
 				if (cardsFetched) {
 					setCards(cardsFetched);
 					setIsLoading(false);
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 			}
 		};
 		fetchCards();
-	}, [page, query, setCards, setIsLoading]);
+	}, [page, query, limit]);
 
 	return (
 		<main className="home">

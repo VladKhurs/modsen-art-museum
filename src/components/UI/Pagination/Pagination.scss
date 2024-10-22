@@ -41,4 +41,35 @@
 		color: $color-white;
 		font-weight: 600;
 	}
+
+
+	
+.dropdown {
+    position: relative;
+    display: inline-block;
+	margin-right: 30px;
+
+	button {
+		cursor: pointer;
+		min-width: 170px;
+		border-radius: 0%;
+		background-color: rgba($color: $color-black, $alpha: 0.05);
+		border: 1px ;
+	}
+	
+	div {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		width: 170px;
+		z-index: 1;
+		
+		button {
+			border-top: 1px solid rgba($color: $color-black, $alpha: 0.5);
+		}
+	}
+}
+
+
+
 }
