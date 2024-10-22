@@ -34,7 +34,7 @@ const ButtonFavorite: React.FC<ButtonFavoriteProps> = ({ card, updateFavorites  
 
     return (
         <button 
-            className={isFavorite ? 'button--active' : 'button'}
+            className={isFavorite ? 'button button--active' : 'button'}
             onClick={changeFavorite}
         >
             <img src={favoritesImg} alt="favorites" />

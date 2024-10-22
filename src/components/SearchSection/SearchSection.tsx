@@ -1,88 +1,31 @@
 import './SearchSection.scss';
-import React, { useContext, useEffect, useState } from 'react';
-import { useFormik } from 'formik';
-import { z } from 'zod';
-import search from '@/assets/search.svg';
-import { Context } from '@/store/Context';
-import { ContextProps } from '@/constants/types';
-import { useDebounce } from '@/utils/functions';
-
-const searchSchema = z.object({
-	query: z.string().min(1, { message: 'Search query cannot be empty' }),
-});
-
-const validate = (values: { query: string }) => {
-	const result = searchSchema.safeParse(values);
-	if (result.success) return {};
-
-	return result.error.flatten().fieldErrors;
-};
+import React from 'react';
+import SearchInput from '@/components/UI/SearchInput/SearchInput';
+import Dropdown from '../UI/DropDown/DropDown';
 
 const SearchSection: React.FC = () => {
-	const { query, setQuery, setIsLoading } = useContext(Context) as ContextProps;
-	const [isEmpty, setIsEmpty] = useState(false);
-	const [lastQuery, setLastQuery] = useState(query);
-	const [inputValue, setInputValue] = useState('');
+	const sortOptionsAge = [
+		{ label: 'Oldest first', sortBy: 'date_end', order: 'asc' },
+		{ label: 'Newest first', sortBy: 'date_end', order: 'desc' },
+	];
 
-	const debouncedInputValue = useDebounce(inputValue, 750);
-
-	useEffect(() => {
-		if (debouncedInputValue && inputValue !== lastQuery) {
-			setQuery(inputValue)
-			setIsLoading(true);
-		}
-	}, [debouncedInputValue]);
-
-	const formik = useFormik({
-		initialValues: {
-			query: '',
-		},
-		validate,
-		onSubmit: (values) => {
-			if (values.query !== lastQuery) {
-				setQuery(values.query);
-				setIsLoading(true);
-				setLastQuery(values.query);
-			}
-		},
-	});
-
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		formik.handleSubmit(e);
-		if (formik.touched.query && formik.errors.query) {
-			setIsEmpty(true);
-		} else {
-			setIsEmpty(false);
-		}
-	};
-
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		formik.handleChange(e);
-		setInputValue(e.target.value);
-	};	
+	const sortOptionsUpdate = [
+		{ label: 'Recently updated', sortBy: 'source_updated_at', order: 'asc' },
+		{ label: 'Updated long ago', sortBy: 'source_updated_at', order: 'desc' },
+	];
 
 	return (
 		<section className="search-section">
 			<h1 className="h1">
 				{"Let's"} Find Some <span>Art</span> Here!
 			</h1>
-			<form onSubmit={handleSubmit} className="search">
-				<input
-					type="search"
-					name="query"
-					placeholder={
-						isEmpty
-							? 'Search query cannot be empty'
-							: 'Search Art, Artist, Work...'
-					}
-					onChange={handleChange}
-					onBlur={formik.handleBlur}
-					value={formik.values.query}
-				/>
-				<button type="submit">
-					<img src={search} alt="search" />
-				</button>
-			</form>
+			<div className="column">
+				<SearchInput />
+				<div className="row">
+					<Dropdown title="Sort by age" options={sortOptionsAge} />
+					<Dropdown title="Sort by source update" options={sortOptionsUpdate} />
+				</div>
+			</div>
 		</section>
 	);
 };
