@@ -23,7 +23,7 @@ const Gallery: React.FC = () => {
                     ))}
                 </div>
             ) : !cards || cards.length === 0 ? (
-                <div className="cards">Nothing found for your request</div>
+                <div className="text-center">Nothing found for your request</div>
             ) : (
                 <>
                     <div className="cards">
