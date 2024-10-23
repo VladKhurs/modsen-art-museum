@@ -28,8 +28,8 @@ const Favorites: React.FC = () => {
 				</div>
 
 				<div className="heading">
-					<p className="text-special">Topics for you</p>
-					<h2 className="h2">Our special gallery</h2>
+					<p className="text-special">Saved by you</p>
+					<h2 className="h2">Your favorites list</h2>
 				</div>
 				
 				{

@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    
     .image {
         width: 387px;
         height: 444px;
@@ -25,7 +26,8 @@
 
         .text {
             padding: 4px 0;
-
+            text-align: left;
+        
             .text-medium {
                 font-weight: 500;
                 max-width: 219px;
@@ -49,6 +51,13 @@
             }
         }
     }
+
+    @media (max-width: 462px) {
+        .image {
+            width: 80vw;
+        }
+	}
+
 }
 
 .load {

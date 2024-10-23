@@ -6,37 +6,40 @@ import home from '@/assets/home.svg';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
-    const location = useLocation();
+	const location = useLocation();
 
-    return (
-        <header className="header">
-            <div className="container">
-                <div className="logo">
-                    <img src={logo} alt="museum" />
-                    <p>Museum of <span>Art</span></p>
-                </div>
-                <div className="links">
-                    {location.pathname === '/' ? (
-                        <div>
-                            <img src={bookmark} alt="bookmark" />
-                            <Link to={'/favorites'} className="link">Your favorites</Link>
-                        </div>
-                    ) : (
-                        <>
-                            <div>
-                                <img src={home} alt="home" />
-                                <Link to={'/'} className="link">Home</Link>
-                            </div>
-                            <div>
-                                <img src={bookmark} alt="bookmark" />
-                                <Link to={'/favorites'} className="link">Your favorites</Link>
-                            </div>
-                        </>
-                    )}
-                </div>
-            </div>
-        </header>
-    );
+	return (
+		<header className="header">
+			<div className="container">
+				<div className="logo">
+					<img src={logo} alt="museum" />
+					<p>
+						Museum of <span>Art</span>
+					</p>
+				</div>
+				<div className="links">
+					{location.pathname === '/' ? (
+						<Link to={'/favorites'} className="link link-single">
+							<img src={bookmark} alt="bookmark" />
+							Your favorites
+						</Link>
+					) : (
+						<>
+							<Link to={'/'} className="link">
+								<img src={home} alt="home" />
+								Home
+							</Link>
+
+							<Link to={'/favorites'} className="link">
+								<img src={bookmark} alt="bookmark" />
+								Your favorites
+							</Link>
+						</>
+					)}
+				</div>
+			</div>
+		</header>
+	);
 };
 
 export default Header;

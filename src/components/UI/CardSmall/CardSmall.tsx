@@ -18,7 +18,7 @@ const CardSmall: React.FC<CardSmallProps> = ({ card, updateFavorites }) => {
 			className="card-small"
 			onClick={() => {
 				sessionStorage.setItem('detailInfo', JSON.stringify(card));
-				navigate('detail-info');
+				navigate('/detail-info');
 			}}
 		>
 			<div className="about">
