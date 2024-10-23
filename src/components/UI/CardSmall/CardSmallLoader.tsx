@@ -3,7 +3,7 @@ import React from 'react';
 
 const CardSmallLoader: React.FC = () => {
 	return (
-		<div className="card-small load">
+		<div className="card-small load" data-testid="loading">
 		</div>
 	);
 };

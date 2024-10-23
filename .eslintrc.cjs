@@ -2,49 +2,60 @@ module.exports = {
 	root: true,
 	env: { browser: true, es2020: true },
 	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:react-hooks/recommended',
-		'airbnb',
-		'airbnb-typescript',
-		'eslint-config-prettier',
-		'prettier',
+	  'eslint:recommended',
+	  'plugin:@typescript-eslint/recommended-type-checked',
+	  'plugin:@typescript-eslint/stylistic-type-checked',
+	  'plugin:react-hooks/recommended',
+	  'plugin:react/recommended',
+	  'plugin:react/jsx-runtime',
+	  'prettier',
 	],
-	ignorePatterns: [
-		'dist',
-		'vite.config.ts',
-		'vitest.config.ts',
-		'tests',
-		'*.cjs',
-	],
+	settings: {
+	  react: {
+		version: 'detect',
+	  },
+	},
+	ignorePatterns: ['dist', '.eslintrc.cjs', "**/*.test.tsx" , "**/*.test.ts" , "coverage"], 
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		project: './tsconfig.json',
+	  ecmaVersion: 'latest',
+	  sourceType: 'module',
+	  project: ['./tsconfig.json', './tsconfig.node.json'],
+	  tsconfigRootDir: __dirname,
 	},
-	plugins: ['prettier', '@typescript-eslint'],
+	plugins: ['react-refresh', 'simple-import-sort'],
 	rules: {
-		'prettier/prettier': 'error',
-		'react/react-in-jsx-scope': 'off',
-		'react/prop-types': 'off',
-		'react/jsx-no-bind': 'off',
-		'import/extensions': [
-			'error',
-			'ignorePackages',
-			{
-				'': 'never',
-				js: 'never',
-				jsx: 'never',
-				ts: 'never',
-				tsx: 'never',
-				mjs: 'never',
-			},
-		],
-		'react/function-component-definition': [
-			2,
-			{
-				namedComponents: 'arrow-function',
-				unnamedComponents: 'arrow-function',
-			},
-		],
+	  'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+	  'simple-import-sort/imports': 'error',
+	  'simple-import-sort/exports': 'error',
+	  '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+	  '@typescript-eslint/no-empty-function': 'off',
 	},
-};
+	overrides: [
+	  {
+		files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+		extends: ['plugin:testing-library/react'],
+	  },
+
+	  {
+		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
+		rules: {
+		  'simple-import-sort/imports': [
+			'error',
+			{
+			  groups: [
+				['^react$', '^http', '^next', '^[a-z]'],
+				['^@'],
+				['^~'],
+				['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+				['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+				['^.+\\.s?css$'],
+				['^\\u0000'],
+			  ],
+			},
+		  ],
+		},
+	  },
+	],
+  };
+  
