@@ -12,7 +12,7 @@
 }
 
 body {
-	min-width: 420px;
+	min-width: 400px;
 	min-height: 100vh;
 }
 
@@ -59,4 +59,5 @@ body {
 .load {
     background-color: $border-card;
     animation: background-animation 1.2s infinite ease-in-out;
+	cursor: auto;
 }

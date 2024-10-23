@@ -4,20 +4,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
     gap: 16px;
     width: 416px;
-    height: 130px;
-    padding: 16px;
+    min-height: 130px;
+    padding: 13px;
     background-color: $color-white;
     border: 1px solid $border-card;
 
     .about {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 16px;
 
         .image {
+            display: flex;
             width: 80px;
             height: 80px;
             overflow: hidden;
@@ -27,7 +30,7 @@
         .text {
             padding: 4px 0;
             .text-medium {
-                font-weight: 500;
+                font-weight: 450;
                 max-width: 219px;
                 white-space: nowrap;
                 overflow: hidden;
@@ -36,12 +39,12 @@
 
             .text-small {
                 margin-top: 8px;
-                font-weight: 700;
+                font-weight: 600;
             }
 
             .text-special {
                 line-height: 27px;
-                font-weight: 400;
+                font-weight: 300;
                 max-width: 219px;
                 white-space: nowrap;
                 overflow: hidden;
@@ -49,5 +52,16 @@
             }
         }
     }
-}
 
+        
+@media (max-width: 462px) {
+    .text-small, .text-medium, .text-special {
+        width: 50vw;
+    }
+
+    .about {
+        flex-wrap: wrap;
+    }
+    width: 80vw;
+}
+}
