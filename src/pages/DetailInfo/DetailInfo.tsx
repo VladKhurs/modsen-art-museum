@@ -27,7 +27,6 @@ const DetailInfo: React.FC = () => {
 		credit_line,
 		department_title,
 	} = detailInfo || {};
-	console.log('hi', detailInfo);
 
 	return (
 		<section className="detail-info">
