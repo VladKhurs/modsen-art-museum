@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import SearchSection from './SearchSection';
+import SearchSection from '../components/SearchSection/SearchSection';
 import { BrowserRouter } from 'react-router-dom';
 import { Context } from '@/store/Context';
 

@@ -2,60 +2,62 @@ module.exports = {
 	root: true,
 	env: { browser: true, es2020: true },
 	extends: [
-	  'eslint:recommended',
-	  'plugin:@typescript-eslint/recommended-type-checked',
-	  'plugin:@typescript-eslint/stylistic-type-checked',
-	  'plugin:react-hooks/recommended',
-	  'plugin:react/recommended',
-	  'plugin:react/jsx-runtime',
-	  'prettier',
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:react-hooks/recommended',
+		'airbnb',
+		'airbnb-typescript',
+		'eslint-config-prettier',
+		'prettier',
 	],
-	settings: {
-	  react: {
-		version: 'detect',
-	  },
-	},
-	ignorePatterns: ['dist', '.eslintrc.cjs', "**/*.test.tsx" , "**/*.test.ts" , "coverage"], 
+	ignorePatterns: [
+		'dist',
+		'vite.config.ts',
+		'vitest.config.ts',
+		'tests',
+		'*.cjs',
+		'__tests__/**', // Add this line to ignore the __tests__ folder
+		'**/*.test.tsx',
+		'**/*.test.ts',
+		'coverage',
+	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-	  ecmaVersion: 'latest',
-	  sourceType: 'module',
-	  project: ['./tsconfig.json', './tsconfig.node.json'],
-	  tsconfigRootDir: __dirname,
+		project: './tsconfig.json',
 	},
-	plugins: ['react-refresh', 'simple-import-sort'],
+	plugins: ['prettier', '@typescript-eslint'],
 	rules: {
-	  'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-	  'simple-import-sort/imports': 'error',
-	  'simple-import-sort/exports': 'error',
-	  '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-	  '@typescript-eslint/no-empty-function': 'off',
-	},
-	overrides: [
-	  {
-		files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-		extends: ['plugin:testing-library/react'],
-	  },
-
-	  {
-		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
-		rules: {
-		  'simple-import-sort/imports': [
+		'prettier/prettier': 'error',
+		'react/react-in-jsx-scope': 'off',
+		'react/prop-types': 'off',
+		'react/jsx-no-bind': 'off',
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{
+				'': 'never',
+				js: 'never',
+				jsx: 'never',
+				ts: 'never',
+				tsx: 'never',
+				mjs: 'never',
+			},
+		],
+		'react/function-component-definition': [
 			'error',
 			{
-			  groups: [
-				['^react$', '^http', '^next', '^[a-z]'],
-				['^@'],
-				['^~'],
-				['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-				['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-				['^.+\\.s?css$'],
-				['^\\u0000'],
-			  ],
+				namedComponents: 'arrow-function',
+				unnamedComponents: 'arrow-function',
 			},
-		  ],
+		],
+	},
+	overrides: [
+		{
+			files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+			rules: {
+				'no-unused-vars': 'off',
+				'no-undef': 'off',
+			},
 		},
-	  },
 	],
-  };
-  
+};

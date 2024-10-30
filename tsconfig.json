@@ -29,10 +29,10 @@
 			"@/pages/*": ["src/pages/*"],
 			"@/public/*": ["src/public/*"],
 			"@/store/*": ["src/store/*"],
-			"@/utils/*": ["src/utils/*"],
+			"@/utils/*": ["src/utils/*"]
 		}
 	},
-  "include": ["src", "jest.config.ts"],
-  "exclude": ["**/*.test.tsx", "**/*.test.ts", "coverage"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src", "jest.config.ts"],
+	"exclude": ["**/*.test.tsx", "**/*.test.ts", "coverage"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

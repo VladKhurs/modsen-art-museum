@@ -1,4 +1,4 @@
-import './SearchInput.scss'
+import './SearchInput.scss';
 import React, { useContext, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import search from '@/assets/search.svg';
@@ -83,4 +83,3 @@ const SearchInput: React.FC = () => {
 };
 
 export default SearchInput;
-

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Favorites from './Favorites';
+import Favorites from '../pages/Favorites/Favorites';
 import { Card } from '@/constants/types';
 
 jest.mock('@/components/UI/CardSmall/CardSmall', () => (props: any) => (

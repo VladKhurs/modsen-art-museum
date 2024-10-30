@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import Header from './Header';
+import Header from '../components/Header/Header';
 
 describe('Header', () => {
   it('renders header component correctly', () => {

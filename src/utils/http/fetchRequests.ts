@@ -8,20 +8,17 @@ export async function fetchByPageLimitQuerySort({
 	page = 1,
 	limit = 3,
 	query = '',
-	sort = null
+	sort = null,
 }: FetchByPageLimitQuerySort): Promise<Card[]> {
 	//&sort[date_end][order]=asc
 	try {
-
-		let url = `https://api.artic.edu/api/v1/artworks/search?q=${query}&query[term][is_public_domain]=true&page=${page}&limit=${limit}`
+		let url = `https://api.artic.edu/api/v1/artworks/search?q=${query}&query[term][is_public_domain]=true&page=${page}&limit=${limit}`;
 
 		if (sort) {
-			url += `&sort[${sort.sortBy}][order]=${sort.order}`
+			url += `&sort[${sort.sortBy}][order]=${sort.order}`;
 		}
-		console.log(url)
-		const searchResponse = await fetch(
-			url
-		);
+		console.log(url);
+		const searchResponse = await fetch(url);
 		if (!searchResponse.ok) {
 			throw new Error('Error fetching data: ' + searchResponse.statusText);
 		}

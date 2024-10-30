@@ -4,7 +4,7 @@ import logo from '@/assets/logo.svg';
 import bookmark from '@/assets/bookmark-orange.svg';
 import home from '@/assets/home.svg';
 import { Link, useLocation } from 'react-router-dom';
-import {BurgerMenu} from '@/components/UI/BurgerMenu/BurgerMenu';
+import { BurgerMenu } from '@/components/UI/BurgerMenu/BurgerMenu';
 
 const Header: React.FC = () => {
 	const location = useLocation();
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
 						</>
 					)}
 				</div>
-				<BurgerMenu/>
+				<BurgerMenu />
 			</div>
 		</header>
 	);

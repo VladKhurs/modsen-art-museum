@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Context } from '@/store/Context';
-import Gallery from './Gallery';
+import Gallery from '@/components/Gallery/Gallery';
 import { Card, ContextProps } from '@/constants/types';
 import { BrowserRouter } from 'react-router-dom';
 
