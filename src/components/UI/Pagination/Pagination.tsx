@@ -15,6 +15,11 @@ const Pagination: React.FC = () => {
 		setDropdownOpen(!dropdownOpen);
 	};
 
+	const handleChangePage = (numberChange: number, isIncrease = true) => {
+		setPage(isIncrease ? page + numberChange : page - numberChange);
+		setIsLoading(true);
+	};
+
 	return (
 		<div className="pagination">
 			<div className="dropdown">
@@ -41,8 +46,7 @@ const Pagination: React.FC = () => {
 					<button
 						className="arrow-left"
 						onClick={() => {
-							setPage(page - 1);
-							setIsLoading(true);
+							handleChangePage(1, false);
 						}}
 					>
 						<img src={arrowLeft} alt="" />
@@ -50,15 +54,25 @@ const Pagination: React.FC = () => {
 				) : (
 					<></>
 				)}
-				<button className="number number-special">{0 + page}</button>
-				<button className="number">{1 + page}</button>
-				<button className="number">{2 + page}</button>
-				<button className="number">{3 + page}</button>
+				<button className="number number-special">{page}</button>
+
+				{Array(3)
+					.fill(null)
+					.map((_, i) => (
+						<button
+							className="number"
+							onClick={() => {
+								handleChangePage(i + 1);
+							}}
+							key={`page-${page}-${i}`}
+						>
+							{i + 1 + page}
+						</button>
+					))}
 				<button
 					className="arrow-right"
 					onClick={() => {
-						setPage(page + 1);
-						setIsLoading(true);
+						handleChangePage(1);
 					}}
 				>
 					<img src={arrowRight} alt="" />
