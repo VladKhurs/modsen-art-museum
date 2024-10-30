@@ -38,27 +38,27 @@
 			}
 		}
 
-        .heading {
-            text-align: center;
-            margin-bottom: 40px;
-            margin-top: 120px;
+		.heading {
+			text-align: center;
+			margin-bottom: 40px;
+			margin-top: 120px;
 			font-weight: 400;
 
 			.text-special {
 				margin-right: 25px;
 				line-height: 19px;
 			}
-        }
+		}
 
-        .cards {
-            display: flex;
+		.cards {
+			display: flex;
 			justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+			flex-wrap: wrap;
+			gap: 16px;
+		}
 
-        .text {
-            margin: 0 auto;
-        }
-	}	
+		.text {
+			margin: 0 auto;
+		}
+	}
 }

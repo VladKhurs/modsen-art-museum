@@ -15,7 +15,12 @@ const Home: React.FC = () => {
 	useEffect(() => {
 		const fetchCards = async () => {
 			try {
-				const cardsFetched = await fetchByPageLimitQuerySort({ page, limit, query, sort });
+				const cardsFetched = await fetchByPageLimitQuerySort({
+					page,
+					limit,
+					query,
+					sort,
+				});
 				if (cardsFetched) {
 					setCards(cardsFetched);
 					setIsLoading(false);

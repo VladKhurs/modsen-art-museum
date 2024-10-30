@@ -6,16 +6,20 @@ import CardSmall from '@/components/UI/CardSmall/CardSmall';
 
 const Favorites: React.FC = () => {
 	const [favorites, setFavorites] = useState<Card[]>([]);
-	
+
 	useEffect(() => {
-        const favoritesFromStorage = JSON.parse(sessionStorage.getItem('favorites') || '[]');
-        setFavorites(favoritesFromStorage);
-    }, []);
+		const favoritesFromStorage = JSON.parse(
+			sessionStorage.getItem('favorites') || '[]'
+		);
+		setFavorites(favoritesFromStorage);
+	}, []);
 
 	const updateFavorites = () => {
-        const updatedFavorites = JSON.parse(sessionStorage.getItem('favorites') || '[]');
-        setFavorites(updatedFavorites);
-    };
+		const updatedFavorites = JSON.parse(
+			sessionStorage.getItem('favorites') || '[]'
+		);
+		setFavorites(updatedFavorites);
+	};
 	return (
 		<section className="favorites">
 			<div className="container">
@@ -31,20 +35,20 @@ const Favorites: React.FC = () => {
 					<p className="text-special">Saved by you</p>
 					<h2 className="h2">Your favorites list</h2>
 				</div>
-				
-				{
-					favorites.length !== 0 ?
-					<div className='cards'>
-					{
-						favorites.map((card: Card) => 
-							<CardSmall card={card} key={card.id} updateFavorites={updateFavorites}/>
-						)
-					}
-				</div>
-				:
-				<div className='text'>No Favorites Yet</div>
-				}
 
+				{favorites.length !== 0 ? (
+					<div className="cards">
+						{favorites.map((card: Card) => (
+							<CardSmall
+								card={card}
+								key={card.id}
+								updateFavorites={updateFavorites}
+							/>
+						))}
+					</div>
+				) : (
+					<div className="text">No Favorites Yet</div>
+				)}
 			</div>
 		</section>
 	);

@@ -2,7 +2,11 @@
 @import '@/constants/variables.scss';
 
 :root {
-	font-family: Lexend Deca ,Inter, Arial, sans-serif;
+	font-family:
+		Lexend Deca,
+		Inter,
+		Arial,
+		sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 400;
@@ -51,13 +55,19 @@ body {
 }
 
 @keyframes background-animation {
-    0%   { background-color: $border-card; }
-    50%  { background-color: rgba($color-black, 0.25); }
-    100% { background-color: $border-card; }
+	0% {
+		background-color: $border-card;
+	}
+	50% {
+		background-color: rgba($color-black, 0.25);
+	}
+	100% {
+		background-color: $border-card;
+	}
 }
 
 .load {
-    background-color: $border-card;
-    animation: background-animation 1.2s infinite ease-in-out;
+	background-color: $border-card;
+	animation: background-animation 1.2s infinite ease-in-out;
 	cursor: auto;
 }

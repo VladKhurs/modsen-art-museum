@@ -8,34 +8,36 @@ import { ContextProps } from '@/constants/types';
 import { Card } from '@/constants/types';
 
 const Gallery: React.FC = () => {
-    const { isLoading, cards, limit } = useContext(Context) as ContextProps;
+	const { isLoading, cards, limit } = useContext(Context) as ContextProps;
 
-    return (
-        <section className="gallery">
-            <div className="heading">
-                <p className="text-special">Topics for you</p>
-                <h2 className="h2">Our special gallery</h2>
-            </div>
-            {isLoading ? (
-                <div className="cards">
-                    {Array(limit).fill(null).map((_, i) => (
-                        <CardBigLoader key={i} />
-                    ))}
-                </div>
-            ) : !cards || cards.length === 0 ? (
-                <div className="text-center">Nothing found for your request</div>
-            ) : (
-                <>
-                    <div className="cards">
-                        {cards.map((card: Card) => (
-                            <CardBig card={card} key={card.id} />
-                        ))}
-                    </div>
-                    <Pagination />
-                </>
-            )}
-        </section>
-    );
+	return (
+		<section className="gallery">
+			<div className="heading">
+				<p className="text-special">Topics for you</p>
+				<h2 className="h2">Our special gallery</h2>
+			</div>
+			{isLoading ? (
+				<div className="cards">
+					{Array(limit)
+						.fill(null)
+						.map((_, i) => (
+							<CardBigLoader key={i} />
+						))}
+				</div>
+			) : !cards || cards.length === 0 ? (
+				<div className="text-center">Nothing found for your request</div>
+			) : (
+				<>
+					<div className="cards">
+						{cards.map((card: Card) => (
+							<CardBig card={card} key={card.id} />
+						))}
+					</div>
+					<Pagination />
+				</>
+			)}
+		</section>
+	);
 };
 
 export default Gallery;

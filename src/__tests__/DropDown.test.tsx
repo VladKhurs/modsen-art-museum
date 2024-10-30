@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import { Context } from '@/store/Context';
-import DropDown from './DropDown';
+import DropDown from '../components/UI/DropDown/DropDown';
 
 describe('DropDown', () => {
   const mockContextValue = {

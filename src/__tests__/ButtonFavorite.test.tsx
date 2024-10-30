@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import ButtonFavorite from './ButtonFavorite';
+import ButtonFavorite from '../components/UI/ButtonFavorite/ButtonFavorite';
 import { Card } from '@/constants/types';
 
 describe('ButtonFavorite', () => {

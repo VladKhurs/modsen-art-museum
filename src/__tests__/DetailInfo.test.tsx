@@ -1,6 +1,6 @@
 import { render, screen, act } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import DetailInfo from './DetailInfo';
+import DetailInfo from '../pages/DetailInfo/DetailInfo';
 import { Card } from '@/constants/types';
 
 const mockNavigate = jest.fn();

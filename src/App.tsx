@@ -29,7 +29,7 @@ const App: React.FC = () => {
 					setPage,
 					query,
 					setQuery,
-					sort, 
+					sort,
 					setSort,
 					isLoading,
 					setIsLoading,
@@ -38,7 +38,7 @@ const App: React.FC = () => {
 					detailInfo,
 					setDetailInfo,
 					limit,
-					setLimit
+					setLimit,
 				}}
 			>
 				<Routes>

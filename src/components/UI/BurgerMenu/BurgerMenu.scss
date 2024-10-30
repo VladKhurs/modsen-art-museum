@@ -1,60 +1,60 @@
 @import '@/constants/variables.scss';
 
 .burger-menu {
-    display: none;
-    @media (max-width: 760px) {
-        position: relative;
-        display: flex;
-        padding: auto;
-        gap: 24px;
-        right: 120px;
-        
-        button {
-            margin-top: 10px;
-        }
-    
-        nav {
-            top: 58px;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            right: -80px;
-            width: 170px;
-            z-index: 1;
-        }
+	display: none;
+	@media (max-width: 760px) {
+		position: relative;
+		display: flex;
+		padding: auto;
+		gap: 24px;
+		right: 120px;
 
-        .img-cross {
-            width: 26px;
-            height: 26px;
-        }
+		button {
+			margin-top: 10px;
+		}
 
-        .img-burger {
-            width: 40px;
-            height: 26px;
-        }
+		nav {
+			top: 58px;
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			right: -80px;
+			width: 170px;
+			z-index: 1;
+		}
 
-        .link-img {
-            width: 24px;
-            height: 24px;
-        }
+		.img-cross {
+			width: 26px;
+			height: 26px;
+		}
 
-        .link {
-            margin: 5px 0 0 4px;
-            font-weight: 300;
-            font-size: 18px;
-            font-family: Inter, Arial, sans-serif;
-            color: $color-white;
-            background-color: rgba(40, 40, 40, 1) 100%;
-            background-color: rgb(40, 40, 40, 1);
-            border-radius: 4px;
-        }
+		.img-burger {
+			width: 40px;
+			height: 26px;
+		}
+
+		.link-img {
+			width: 24px;
+			height: 24px;
+		}
+
+		.link {
+			margin: 5px 0 0 4px;
+			font-weight: 300;
+			font-size: 18px;
+			font-family: Inter, Arial, sans-serif;
+			color: $color-white;
+			background-color: rgba(40, 40, 40, 1) 100%;
+			background-color: rgb(40, 40, 40, 1);
+			border-radius: 4px;
+		}
 	}
 
-    @media (max-width: 462px) {
-        right:0;
+	@media (max-width: 462px) {
+		right: 0;
 
-        nav {
-            top: 40px;
-        }
-    }
+		nav {
+			top: 40px;
+		}
+	}
 }

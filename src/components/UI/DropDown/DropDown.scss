@@ -4,15 +4,15 @@
 	position: relative;
 	display: inline-block;
 	margin: 16px 16px 0 0;
-    border-radius: 16px;
+	border-radius: 16px;
 
 	button {
 		cursor: pointer;
 		min-width: 200px;
 		border-radius: 0%;
 		background-color: rgba($color: $color-black, $alpha: 0.05);
-        border-radius: 16px;
-        height: 30px;
+		border-radius: 16px;
+		height: 30px;
 	}
 
 	div {

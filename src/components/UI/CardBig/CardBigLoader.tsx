@@ -1,4 +1,4 @@
-import './CardBig.scss'
+import './CardBig.scss';
 import React from 'react';
 
 const CardBigLoader: React.FC = () => {
