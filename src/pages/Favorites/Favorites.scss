@@ -1,64 +1,64 @@
-@import '@/constants/variables.scss';
+@import '@/constants/theme.scss';
 
 .favorites {
-	display: flex;
-	justify-content: center;
-	padding: 120px 16px;
+  display: flex;
+  justify-content: center;
+  padding: $extra-large-spacing $medium-spacing;
 
-	.container {
-		display: flex;
-		flex-direction: column;
-		max-width: 1280px;
-		text-align: left;
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: $container-width;
+    text-align: left;
 
-		.row {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
 
-			div {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 74px;
-				height: 74px;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 74px;
+        height: 74px;
 
-				img {
-					display: flex;
-					width: 38px;
-					height: 48px;
-				}
-			}
+        img {
+          display: flex;
+          width: 38px;
+          height: 48px;
+        }
+      }
 
-			.h1 {
-				display: flex;
-				color: $color-danger;
-			}
-		}
+      .h1 {
+        display: flex;
+        color: $color-danger;
+      }
+    }
 
-		.heading {
-			text-align: center;
-			margin-bottom: 40px;
-			margin-top: 120px;
-			font-weight: 400;
+    .heading {
+      text-align: center;
+      margin-bottom: 40px;
+      margin-top: $extra-large-spacing;
+      font-weight: $regular-font-weight;
 
-			.text-special {
-				margin-right: 25px;
-				line-height: 19px;
-			}
-		}
+      .text-special {
+        margin-right: 25px;
+        line-height: 19px;
+      }
+    }
 
-		.cards {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 16px;
-		}
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: $small-gap;
+    }
 
-		.text {
-			margin: 0 auto;
-		}
-	}
+    .text {
+      margin: 0 auto;
+    }
+  }
 }

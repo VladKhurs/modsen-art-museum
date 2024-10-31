@@ -1,60 +1,60 @@
-@import '@/constants/variables.scss';
+@import '@/constants/theme.scss';
 
 .burger-menu {
-	display: none;
-	@media (max-width: 760px) {
-		position: relative;
-		display: flex;
-		padding: auto;
-		gap: 24px;
-		right: 120px;
+  display: none;
 
-		button {
-			margin-top: 10px;
-		}
+  @media (max-width: $small-tablet-width) {
+    position: relative;
+    display: flex;
+    padding: auto;
+    gap: $medium-gap;
+    right: $extra-large-spacing;
 
-		nav {
-			top: 58px;
-			display: flex;
-			flex-direction: column;
-			position: absolute;
-			right: -80px;
-			width: 170px;
-			z-index: 1;
-		}
+    button {
+      margin-top: 10px;
+    }
 
-		.img-cross {
-			width: 26px;
-			height: 26px;
-		}
+    nav {
+      top: 58px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: -80px;
+      width: 170px;
+      z-index: 1;
+    }
 
-		.img-burger {
-			width: 40px;
-			height: 26px;
-		}
+    .img-cross {
+      width: 26px;
+      height: 26px;
+    }
 
-		.link-img {
-			width: 24px;
-			height: 24px;
-		}
+    .img-burger {
+      width: 40px;
+      height: 26px;
+    }
 
-		.link {
-			margin: 5px 0 0 4px;
-			font-weight: 300;
-			font-size: 18px;
-			font-family: Inter, Arial, sans-serif;
-			color: $color-white;
-			background-color: rgba(40, 40, 40, 1) 100%;
-			background-color: rgb(40, 40, 40, 1);
-			border-radius: 4px;
-		}
-	}
+    .link-img {
+      width: 24px;
+      height: 24px;
+    }
 
-	@media (max-width: 462px) {
-		right: 0;
+    .link {
+      margin: 5px 0 0 4px;
+      font-weight: $light-font-weight;
+      font-size: $paragraph-font-size;
+      font-family: Inter, Arial, sans-serif;
+      color: $color-white;
+      background-color: $gradient-color-right;
+      border-radius: $small-border-radius;
+    }
 
-		nav {
-			top: 40px;
-		}
-	}
+    @media (max-width: $mobile-width) {
+      right: 0;
+
+      nav {
+        top: 40px;
+      }
+    }
+  }
 }

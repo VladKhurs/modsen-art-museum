@@ -1,82 +1,81 @@
-@import '@/constants/variables.scss';
+@import '@/constants/theme.scss';
 
 .pagination {
-	display: flex;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: end;
+  position: relative;
+  top: -38px;
 
-	gap: 30px;
-	width: 100%;
-	justify-content: end;
-	position: relative;
-	top: -38px;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 $large-spacing 0 0;
 
-	.dropdown {
-		position: relative;
-		display: inline-block;
-		margin: 0 30px 0 0;
+    button {
+      cursor: pointer;
+      min-width: 170px;
+      border-radius: $small-border-radius;
+      background-color: rgba($color: $color-black, $alpha: 0.05);
+      height: 30px;
+    }
 
-		button {
-			cursor: pointer;
-			min-width: 170px;
-			border-radius: 4px;
-			background-color: rgba($color: $color-black, $alpha: 0.05);
-			height: 30px;
-		}
+    div {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 170px;
+      z-index: 1;
 
-		div {
-			display: flex;
-			flex-direction: column;
-			position: absolute;
-			width: 170px;
-			z-index: 1;
+      button {
+        border-top: $border-width $border-style rgba($color: $color-black, $alpha: 0.5);
+      }
+    }
+  }
 
-			button {
-				border-top: 1px solid rgba($color: $color-black, $alpha: 0.5);
-			}
-		}
-	}
+  .paginate {
+    display: flex;
+    gap: $ultra-small-gap;
 
-	.paginate {
-		display: flex;
-		gap: 8px;
+    .arrow-left {
+      margin-right: 0px;
+    }
 
-		.arrow-left {
-			margin-right: 0px;
-		}
+    .arrow-right {
+      margin-left: 0px;
+    }
 
-		.arrow-right {
-			margin-left: 0px;
-		}
+    .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: $small-border-radius;
+      font-size: $paragraph-font-size;
+      font-weight: $light-font-weight;
+    }
 
-		.number {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 30px;
-			height: 30px;
-			border-radius: 4px;
-			font-size: 18px;
-			font-weight: 300;
-		}
+    .arrow-left,
+    .arrow-right {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      width: 30px;
+      height: 30px;
+    }
 
-		.arrow-left,
-		.arrow-right {
-			display: flex;
-			align-items: center;
-			justify-content: end;
-			width: 30px;
-			height: 30px;
-		}
+    .number-special {
+      background-color: $color-danger;
+      color: $color-white;
+      font-weight: $semi-bold-font-weight;
+      cursor: default;
+    }
+  }
 
-		.number-special {
-			background-color: $color-danger;
-			color: $color-white;
-			font-weight: 600;
-			cursor: default;
-		}
-	}
-
-	@media (max-width: 462px) {
-		flex-direction: column-reverse;
-		align-items: center;
-	}
+  @media (max-width: $mobile-width) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
