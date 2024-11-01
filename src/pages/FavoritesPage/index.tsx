@@ -4,6 +4,7 @@ import { FC, lazy, useEffect, useState } from 'react';
 
 import favorite from '@/assets/favorites-danger.svg';
 import { Card } from '@/types/componentsTypes';
+import { SessionStorageUtils } from '@/utils/sessionStorageUtils';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 
@@ -11,16 +12,13 @@ const FavoritesPage: FC = () => {
 	const [favorites, setFavorites] = useState<Card[]>([]);
 
 	useEffect(() => {
-		const favoritesFromStorage = JSON.parse(
-			sessionStorage.getItem('favorites') || '[]'
-		);
+		const favoritesFromStorage = SessionStorageUtils.getItem('favorites') || [];
+
 		setFavorites(favoritesFromStorage);
 	}, []);
 
 	const updateFavorites = () => {
-		const updatedFavorites = JSON.parse(
-			sessionStorage.getItem('favorites') || '[]'
-		);
+		const updatedFavorites = SessionStorageUtils.getItem('favorites') || [];
 		setFavorites(updatedFavorites);
 	};
 	return (
