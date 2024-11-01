@@ -1,10 +1,11 @@
-import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import pluginReact from 'eslint-plugin-react';
-import prettier from 'eslint-plugin-prettier';
 import pluginImport from 'eslint-plugin-import';
+import prettier from 'eslint-plugin-prettier';
+import pluginReact from 'eslint-plugin-react';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
 
 export default [
 	{
@@ -19,6 +20,7 @@ export default [
 			react: pluginReact,
 			prettier: prettier,
 			import: pluginImport,
+			'simple-import-sort': simpleImportSort,
 		},
 		settings: {
 			react: {
@@ -62,6 +64,8 @@ export default [
 				{ argsIgnorePattern: '^_' },
 			],
 			'@typescript-eslint/no-empty-function': 'off',
+			'simple-import-sort/imports': 'error',
+			'simple-import-sort/exports': 'error',
 		},
 	},
 	{

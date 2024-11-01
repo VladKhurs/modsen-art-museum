@@ -1,9 +1,11 @@
 import './index.scss';
-import { lazy, FC, useEffect, useState } from 'react';
+
+import { FC, lazy, useEffect, useState } from 'react';
+
 import { fetchByPageLimitQuerySort } from '@/api/fetchRequests';
-import { CardState } from '@/types/componentsTypes';
-import { LIMITS, PAGES } from '@/constants/numbers';
 import ErrorMessage from '@/components/UI/ErrorMessage';
+import { LIMITS, PAGES } from '@/constants/numbers';
+import { CardState } from '@/types/componentsTypes';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 const CardSmallLoader = lazy(() => import('@/components/UI/CardSmallLoader'));
@@ -28,7 +30,11 @@ const OtherWorks: FC = () => {
 					setIsLoading(false);
 				}
 			} catch (e) {
-				setError(e.message);
+				if (e instanceof Error) {
+					setError(e.message);
+				} else {
+					setError('An unknown error occurred');
+				}
 				console.error(e);
 			}
 		};

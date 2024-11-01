@@ -1,5 +1,6 @@
 import './index.scss';
-import { lazy, FC } from 'react';
+
+import { FC, lazy } from 'react';
 
 const SearchInput = lazy(() => import('@/components/UI/SearchInput'));
 const Dropdown = lazy(() => import('@/components/UI/DropDown'));

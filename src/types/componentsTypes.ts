@@ -1,5 +1,3 @@
-import { LIMIT_OPTIONS } from "@/constants/numbers";
-
 export interface Card {
 	id: number;
 	title: string;

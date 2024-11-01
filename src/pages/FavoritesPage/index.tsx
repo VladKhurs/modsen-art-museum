@@ -1,7 +1,9 @@
-import { Card } from '@/types/componentsTypes';
 import './index.scss';
-import { lazy, FC, useEffect, useState } from 'react';
+
+import { FC, lazy, useEffect, useState } from 'react';
+
 import favorite from '@/assets/favorites-danger.svg';
+import { Card } from '@/types/componentsTypes';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 

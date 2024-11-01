@@ -1,8 +1,10 @@
 import './index.scss';
-import { lazy, FC } from 'react';
+
+import { FC, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CardBigProps } from '@/types/componentsTypes';
+
 import { API_URLS, ROUTES } from '@/constants/paths';
+import { CardBigProps } from '@/types/componentsTypes';
 
 const ButtonFavorite = lazy(() => import('@/components/UI/ButtonFavorite'));
 const { IMAGE_URL } = API_URLS;

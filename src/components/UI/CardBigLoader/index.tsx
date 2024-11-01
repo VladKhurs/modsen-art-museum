@@ -1,4 +1,5 @@
 import './index.scss';
+
 import { FC } from 'react';
 
 const CardBigLoader: FC = () => {

@@ -1,8 +1,10 @@
-import React, { useState, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Context } from './store/Context';
+import React, { Suspense, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Card, Sort } from '@/types/componentsTypes';
+
 import { ROUTES } from './constants/paths';
+import { Context } from './store/Context';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage'));
 const DetailInfoPage = React.lazy(() => import('@/pages/DetailInfoPage'));

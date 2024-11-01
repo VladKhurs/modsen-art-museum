@@ -1,5 +1,7 @@
 import './index.scss';
+
 import { FC } from 'react';
+
 import logo from '@/assets/logo.svg';
 import modsen from '@/assets/modsen.svg';
 
