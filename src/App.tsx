@@ -5,6 +5,7 @@ import { Card, Sort } from '@/types/componentsTypes';
 
 import { ROUTES } from './constants/paths';
 import { Context } from './store/Context';
+import { SessionStorageUtils } from './utils/sessionStorageUtils';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage'));
 const DetailInfoPage = React.lazy(() => import('@/pages/DetailInfoPage'));
@@ -22,8 +23,8 @@ const App: React.FC = () => {
 	const [cards, setCards] = useState<Card[] | null>(null);
 	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
 
-	if (sessionStorage.getItem('favorites') === null) {
-		sessionStorage.setItem('favorites', JSON.stringify([]));
+	if (SessionStorageUtils.getItem('favorites') === null) {
+		SessionStorageUtils.setItem('favorites', []);
 	}
 
 	return (

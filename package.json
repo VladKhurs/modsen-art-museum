@@ -19,8 +19,6 @@
 		"lint": "eslint . --fix --max-warnings=0 --ignore-pattern dist/",
 		"format": "prettier .  --write"
 	},
-
-
 	"dependencies": {
 		"formik": "^2.4.6",
 		"identity-obj-proxy": "^3.0.0",
@@ -29,7 +27,7 @@
 		"react-router-dom": "^6.27.0",
 		"sass": "^1.79.5",
 		"zod": "^3.23.8"
-	  },
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^18.4.3",
 		"@commitlint/config-conventional": "^18.4.3",

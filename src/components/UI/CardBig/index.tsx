@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { API_URLS, ROUTES } from '@/constants/paths';
 import { CardBigProps } from '@/types/componentsTypes';
+import { SessionStorageUtils } from '@/utils/sessionStorageUtils';
 
 const ButtonFavorite = lazy(() => import('@/components/UI/ButtonFavorite'));
 const { IMAGE_URL } = API_URLS;
@@ -17,7 +18,7 @@ const CardBig: FC<CardBigProps> = ({ card }) => {
 		<div
 			className="card-big"
 			onClick={() => {
-				sessionStorage.setItem('detailInfo', JSON.stringify(card));
+				SessionStorageUtils.setItem('detailInfo', card);
 				navigate(ROUTES.DETAIL_INFO);
 			}}
 		>
