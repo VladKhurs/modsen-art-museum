@@ -1,9 +1,11 @@
 import './index.scss';
+
 import { FC, lazy } from 'react';
-import logo from '@/assets/logo.svg';
+import { Link, useLocation } from 'react-router-dom';
+
 import bookmark from '@/assets/bookmark-orange.svg';
 import home from '@/assets/home.svg';
-import { Link, useLocation } from 'react-router-dom';
+import logo from '@/assets/logo.svg';
 import { ROUTES } from '@/constants/paths';
 
 const BurgerMenu = lazy(() => import('@/components/UI/BurgerMenu'));

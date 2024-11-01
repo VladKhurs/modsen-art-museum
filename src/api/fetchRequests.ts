@@ -1,7 +1,7 @@
+import { LIMITS, PAGES } from '@/constants/numbers';
+import { API_URLS } from '@/constants/paths';
 import { FetchByPageLimitQuerySort, SearchItem } from '@/types/apiTypes';
 import { Card } from '@/types/componentsTypes';
-import { API_URLS } from '@/constants/paths';
-import { LIMITS, PAGES } from '@/constants/numbers';
 
 const { BASE_URL } = API_URLS;
 const { DEFAULT_PAGE } = PAGES;

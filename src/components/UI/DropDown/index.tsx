@@ -1,7 +1,9 @@
-import { Context } from '@/store/Context';
 import './index.scss';
+
 import { FC, useContext, useState } from 'react';
-import { DropdownProps, ContextProps } from '@/types/componentsTypes';
+
+import { Context } from '@/store/Context';
+import { ContextProps, DropdownProps } from '@/types/componentsTypes';
 
 const Dropdown: FC<DropdownProps> = ({ title, options }) => {
 	const { setSort, setIsLoading } = useContext(Context) as ContextProps;

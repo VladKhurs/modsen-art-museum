@@ -24,13 +24,17 @@ module.exports = {
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		project: './tsconfig.json',
+		sourceType: 'module',
+		ecmaVersion: 'latest',
 	},
-	plugins: ['prettier', '@typescript-eslint'],
+	plugins: ['prettier', '@typescript-eslint', 'simple-import-sort'],
 	rules: {
 		'prettier/prettier': 'error',
 		'react/react-in-jsx-scope': 'off',
 		'react/prop-types': 'off',
 		'react/jsx-no-bind': 'off',
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error',
 		'import/extensions': [
 			'error',
 			'ignorePackages',

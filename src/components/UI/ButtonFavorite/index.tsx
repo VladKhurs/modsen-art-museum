@@ -1,5 +1,7 @@
 import './index.scss';
-import { FC, useState, useEffect } from 'react';
+
+import { FC, useEffect, useState } from 'react';
+
 import favoritesImg from '@/assets/favorites-danger.svg';
 import { ButtonFavoriteProps, Card } from '@/types/componentsTypes';
 import { addUnique } from '@/utils/functions';

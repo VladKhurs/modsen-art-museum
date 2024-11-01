@@ -1,5 +1,7 @@
-import { FC } from 'react';
 import './index.scss';
+
+import { FC } from 'react';
+
 import { ErrorMessageProps } from '@/types/componentsTypes';
 
 const ErrorMessage: FC<ErrorMessageProps> = ({ message }) => {

@@ -1,10 +1,12 @@
 import './index.scss';
+
 import { FC, useContext, useState } from 'react';
-import { Context } from '@/store/Context';
+
 import arrowLeft from '@/assets/arrow-left.svg';
 import arrowRight from '@/assets/arrow-right.svg';
-import { ContextProps } from '@/types/componentsTypes';
 import { LIMITS, PAGINATES } from '@/constants/numbers';
+import { Context } from '@/store/Context';
+import { ContextProps } from '@/types/componentsTypes';
 
 const { SMALL_LIMIT, LARGE_LIMIT } = LIMITS;
 const { PAGINATE_BUTTONS_AMOUNT, PAGINATE_BY } = PAGINATES;

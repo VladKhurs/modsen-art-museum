@@ -1,5 +1,6 @@
-import { Card } from '@/types/componentsTypes';
 import { useEffect, useState } from 'react';
+
+import { Card } from '@/types/componentsTypes';
 
 export const addUnique = (arr: Card[], newItem: Card) => {
 	if (!arr.some((item) => item.id === newItem.id)) {

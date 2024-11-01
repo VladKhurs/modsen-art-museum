@@ -1,12 +1,14 @@
 import './index.scss';
-import { FC, useContext, useEffect, useState } from 'react';
+
 import { useFormik } from 'formik';
-import search from '@/assets/search.svg';
-import { ContextProps } from '@/types/componentsTypes';
-import { Context } from '@/store/Context';
+import { FC, useContext, useEffect, useState } from 'react';
 import { z } from 'zod';
-import { useDebounce } from '@/utils/functions';
+
+import search from '@/assets/search.svg';
 import { QUERIES } from '@/constants/numbers';
+import { Context } from '@/store/Context';
+import { ContextProps } from '@/types/componentsTypes';
+import { useDebounce } from '@/utils/functions';
 
 const { MIN_QUERY } = QUERIES;
 

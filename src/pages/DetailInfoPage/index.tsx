@@ -1,9 +1,11 @@
-import { Card } from '@/types/componentsTypes';
 import './index.scss';
+
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import ButtonFavorite from '@/components/UI/ButtonFavorite';
 import { API_URLS } from '@/constants/paths';
+import { Card } from '@/types/componentsTypes';
 
 const { IMAGE_URL } = API_URLS;
 

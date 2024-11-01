@@ -1,5 +1,7 @@
 import './index.scss';
-import { lazy, FC, useContext } from 'react';
+
+import { FC, lazy, useContext } from 'react';
+
 import { Context } from '@/store/Context';
 import { ContextProps } from '@/types/componentsTypes';
 import { Card } from '@/types/componentsTypes';

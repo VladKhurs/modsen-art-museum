@@ -1,11 +1,13 @@
 import './index.scss';
+
 import { FC, useContext, useEffect, useState } from 'react';
+
 import { fetchByPageLimitQuerySort } from '@/api/fetchRequests';
-import { Context } from '@/store/Context';
-import SearchSection from '@/components/SearchSection';
 import Gallery from '@/components/Gallery';
 import OtherWorks from '@/components/OtherWorks';
+import SearchSection from '@/components/SearchSection';
 import ErrorMessage from '@/components/UI/ErrorMessage';
+import { Context } from '@/store/Context';
 import { ContextProps } from '@/types/componentsTypes';
 
 const HomePage: FC = () => {

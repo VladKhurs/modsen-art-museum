@@ -1,12 +1,14 @@
 import './index.scss';
-import { FC, useState, useRef } from 'react';
+
+import { FC, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useClickOutside } from '@/utils/functions';
+
 import bookmark from '@/assets/bookmark-orange.svg';
-import home from '@/assets/home.svg';
 import burger from '@/assets/burger.svg';
 import cross from '@/assets/cross.svg';
+import home from '@/assets/home.svg';
 import { ROUTES } from '@/constants/paths';
+import { useClickOutside } from '@/utils/functions';
 
 const { HOME, FAVORITES } = ROUTES;
 
