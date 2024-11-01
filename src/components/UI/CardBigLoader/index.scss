@@ -1,0 +1,22 @@
+@import '@/styles/theme.scss';
+
+.card-big {
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+
+	.image {
+		width: 387px;
+		height: 444px;
+	}
+
+	@media (max-width: $mobile-width) {
+		.image {
+			width: 80vw;
+		}
+	}
+}
+
+.load {
+	margin-bottom: 162px;
+}

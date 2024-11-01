@@ -1,4 +1,4 @@
-import { Card } from '@/constants/types';
+import { Card } from '@/types/componentsTypes';
 import { useEffect, useState } from 'react';
 
 export const addUnique = (arr: Card[], newItem: Card) => {

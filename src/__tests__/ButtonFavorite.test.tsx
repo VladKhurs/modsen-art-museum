@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
-import ButtonFavorite from '../components/UI/ButtonFavorite/ButtonFavorite';
-import { Card } from '@/constants/types';
+import ButtonFavorite from '@/components/UI/ButtonFavorite';
+import { Card } from '@/types/componentsTypes';
 
 describe('ButtonFavorite', () => {
   const mockCard: Card = {
