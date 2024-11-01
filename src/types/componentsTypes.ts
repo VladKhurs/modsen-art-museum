@@ -55,3 +55,7 @@ export interface DropdownProps {
 	title: string;
 	options: { label: string; sortBy: string; order: string }[];
 }
+
+export interface ErrorMessageProps {
+	message: string;
+}

@@ -1,0 +1,7 @@
+@import '@/styles/theme.scss';
+
+.error-message {
+	p {
+		color: $color-danger;
+	}
+}
