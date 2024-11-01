@@ -30,7 +30,11 @@ const HomePage: FC = () => {
 					setIsLoading(false);
 				}
 			} catch (e) {
-				setError(e.message);
+				if (e instanceof Error) {
+					setError(e.message);
+				} else {
+					setError('An unknown error occurred');
+				}
 				console.error(e);
 			}
 		};
