@@ -1,0 +1,21 @@
+@import '@/styles/theme.scss';
+
+.gallery {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+	margin-top: 68px;
+
+	.cards {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		column-gap: $large-gap;
+	}
+
+	.textCenter {
+		margin: 0 auto;
+	}
+}

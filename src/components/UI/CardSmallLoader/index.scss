@@ -1,0 +1,19 @@
+@import '@/styles/theme.scss';
+
+.card-small {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	gap: $medium-spacing;
+	width: 416px;
+	min-height: 130px;
+	padding: 13px;
+	background-color: $color-white;
+	border: 1px solid $border-card;
+
+	@media (max-width: $mobile-width) {
+		width: 80vw;
+	}
+}

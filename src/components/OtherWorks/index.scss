@@ -1,0 +1,22 @@
+@import '@/styles/theme.scss';
+
+.other-works {
+	margin-top: 75px;
+
+	.cards {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: $small-gap;
+	}
+
+	.text-special {
+		line-height: 20px;
+		margin-top: 5px;
+	}
+
+	.load {
+		margin: 0;
+	}
+}
