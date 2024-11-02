@@ -1,0 +1,12 @@
+@import '@/styles/theme.scss';
+.link {
+	margin: 5px 0 0 4px;
+	font-weight: $light-font-weight;
+	font-size: $paragraph-font-size;
+	font-family: Inter, Arial, sans-serif;
+	color: $color-white;
+	.link-img {
+		width: 24px;
+		height: 24px;
+	}
+}

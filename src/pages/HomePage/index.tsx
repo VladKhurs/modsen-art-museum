@@ -1,45 +1,31 @@
 import './index.scss';
 
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, lazy, useState } from 'react';
 
-import { fetchByPageLimitQuerySort } from '@/api/fetchRequests';
-import Gallery from '@/components/Gallery';
-import OtherWorks from '@/components/OtherWorks';
-import SearchSection from '@/components/SearchSection';
-import ErrorMessage from '@/components/UI/ErrorMessage';
-import { Context } from '@/store/Context';
-import { ContextProps } from '@/types/componentsTypes';
+import { Sort } from '@/types/componentsTypes';
+import { LIMITS, PAGES } from '@/constants/numbers';
+import { useFetchHome } from '@/utils/hooks';
+
+const Gallery = lazy(() => import('@/components/Gallery'));
+const OtherWorks = lazy(() => import('@/components/OtherWorks'));
+const SearchSection = lazy(() => import('@/components/SearchSection'));
+const ErrorMessage = lazy(() => import('@/components/UI/ErrorMessage'));
+
+const { SMALL_LIMIT } = LIMITS;
+const { DEFAULT_PAGE } = PAGES;
 
 const HomePage: FC = () => {
-	const { query, setIsLoading, setCards, page, limit, sort } = useContext(
-		Context
-	) as ContextProps;
-	const [error, setError] = useState<string | null>(null);
+	const [page, setPage] = useState<number>(DEFAULT_PAGE);
+	const [limit, setLimit] = useState<number>(SMALL_LIMIT);
+	const [query, setQuery] = useState<string>('');
+	const [sort, setSort] = useState<Sort | null>(null);
 
-	useEffect(() => {
-		const fetchCards = async () => {
-			try {
-				const cardsFetched = await fetchByPageLimitQuerySort({
-					page,
-					limit,
-					query,
-					sort,
-				});
-				if (cardsFetched) {
-					setCards(cardsFetched);
-					setIsLoading(false);
-				}
-			} catch (e) {
-				if (e instanceof Error) {
-					setError(e.message);
-				} else {
-					setError('An unknown error occurred');
-				}
-				console.error(e);
-			}
-		};
-		fetchCards();
-	}, [page, query, limit, sort]);
+	const { cards, isLoading, error, setIsLoading } = useFetchHome(
+		page,
+		limit,
+		query,
+		sort
+	);
 
 	return (
 		<main className="home">
@@ -49,8 +35,20 @@ const HomePage: FC = () => {
 						<ErrorMessage message={error} />
 					) : (
 						<>
-							<SearchSection />
-							<Gallery />
+							<SearchSection
+								setQuery={setQuery}
+								setSort={setSort}
+								setIsLoading={setIsLoading}
+							/>
+							<Gallery
+								page={page}
+								setPage={setPage}
+								limit={limit}
+								setLimit={setLimit}
+								isLoading={isLoading}
+								setIsLoading={setIsLoading}
+								cards={cards}
+							/>
 							<OtherWorks />
 						</>
 					)}

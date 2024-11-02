@@ -1,23 +1,23 @@
 import './index.scss';
 
-import { FC, useContext, useState } from 'react';
+import { FC } from 'react';
 
-import { Context } from '@/store/Context';
-import { ContextProps, DropdownProps } from '@/types/componentsTypes';
+import { DropdownProps } from '@/types/componentsTypes';
+import { useDropdown } from '@/utils/hooks';
+import { useDropdownHandlers } from '@/utils/hooks';
 
-const Dropdown: FC<DropdownProps> = ({ title, options }) => {
-	const { setSort, setIsLoading } = useContext(Context) as ContextProps;
-	const [dropdownOpen, setDropdownOpen] = useState(false);
-
-	const handleDropdownClick = () => {
-		setDropdownOpen(!dropdownOpen);
-	};
-
-	const handleClick = (sortBy: string, order: string) => {
-		handleDropdownClick();
-		setIsLoading(true);
-		setSort({ sortBy, order });
-	};
+const Dropdown: FC<DropdownProps> = ({
+	title,
+	options,
+	setSort,
+	setIsLoading,
+}) => {
+	const { dropdownOpen, handleDropdownClick } = useDropdown();
+	const { handleClick } = useDropdownHandlers({
+		setSort,
+		setIsLoading,
+		handleDropdownClick,
+	});
 
 	return (
 		<div className="dropdown">

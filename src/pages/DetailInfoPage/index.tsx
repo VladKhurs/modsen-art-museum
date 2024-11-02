@@ -1,26 +1,17 @@
 import './index.scss';
 
-import { FC, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FC, lazy } from 'react';
 
-import ButtonFavorite from '@/components/UI/ButtonFavorite';
 import { API_URLS } from '@/constants/paths';
-import { Card } from '@/types/componentsTypes';
+import { useDetailInfo } from '@/utils/hooks';
+
+const ButtonFavorite = lazy(() => import('@/components/UI/ButtonFavorite'));
 
 const { IMAGE_URL } = API_URLS;
 
 const DetailInfoPage: FC = () => {
-	const navigate = useNavigate();
-	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
+	const detailInfo = useDetailInfo();
 
-	useEffect(() => {
-		const detailInfoStorage = sessionStorage.getItem('detailInfo');
-		if (detailInfoStorage) {
-			setDetailInfo(JSON.parse(detailInfoStorage));
-		} else {
-			navigate('/');
-		}
-	}, [navigate]);
 	const {
 		title,
 		artist_title,
@@ -32,6 +23,13 @@ const DetailInfoPage: FC = () => {
 		credit_line,
 		department_title,
 	} = detailInfo || {};
+
+	const detailInfoFields = [
+		{ label: 'Artist nationality:', value: place_of_origin },
+		{ label: 'Dimensions Sheet:', value: dimensions },
+		{ label: 'Credit Line:', value: department_title },
+		{ label: 'Repository:', value: credit_line },
+	];
 
 	return (
 		<section className="detail-info">
@@ -53,22 +51,12 @@ const DetailInfoPage: FC = () => {
 					</div>
 					<div className="overview">
 						<p className="title">Overview</p>
-						<div className="row">
-							<p className="text-special"> Artist nacionality:</p>
-							<p>{place_of_origin}</p>
-						</div>
-						<div className="row">
-							<p className="text-special"> Dimensions Sheet:</p>
-							<p>{dimensions}</p>
-						</div>
-						<div className="row">
-							<p className="text-special"> Credit Line:</p>
-							<p>{department_title}</p>
-						</div>
-						<div className="row">
-							<p className="text-special"> Repository:</p>
-							<p>{credit_line}</p>
-						</div>
+						{detailInfoFields.map((field, index) => (
+							<div className="row" key={index}>
+								<p className="text-special">{field.label}</p>
+								<p>{field.value}</p>
+							</div>
+						))}
 						<p>{is_public_domain ? 'Public' : 'Not Public'}</p>
 					</div>
 				</div>

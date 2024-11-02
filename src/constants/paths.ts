@@ -1,4 +1,5 @@
 export const ROUTES = {
+	DEFAULT: '*',
 	HOME: '/',
 	DETAIL_INFO: '/detail-info',
 	FAVORITES: '/favorites',

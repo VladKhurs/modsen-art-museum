@@ -1,31 +1,34 @@
+import { SearchSectionProps } from '@/types/componentsTypes';
 import './index.scss';
 
 import { FC, lazy } from 'react';
+import { SORT_OPTIONS } from '@/constants/sortOptions';
 
 const SearchInput = lazy(() => import('@/components/UI/SearchInput'));
 const Dropdown = lazy(() => import('@/components/UI/DropDown'));
 
-const SearchSection: FC = () => {
-	const sortOptionsAge = [
-		{ label: 'Oldest first', sortBy: 'date_end', order: 'asc' },
-		{ label: 'Newest first', sortBy: 'date_end', order: 'desc' },
-	];
-
-	const sortOptionsUpdate = [
-		{ label: 'Recently updated', sortBy: 'source_updated_at', order: 'asc' },
-		{ label: 'Updated long ago', sortBy: 'source_updated_at', order: 'desc' },
-	];
-
+const SearchSection: FC<SearchSectionProps> = ({
+	setQuery,
+	setSort,
+	setIsLoading,
+}) => {
 	return (
 		<section className="search-section">
 			<h1 className="h1">
 				{"Let's"} Find Some <span>Art</span> Here!
 			</h1>
 			<div className="column">
-				<SearchInput />
+				<SearchInput setQuery={setQuery} setIsLoading={setIsLoading} />
 				<div className="row">
-					<Dropdown title="Sort by age" options={sortOptionsAge} />
-					<Dropdown title="Sort by source update" options={sortOptionsUpdate} />
+					{SORT_OPTIONS.map((dropdown) => (
+						<Dropdown
+							key={dropdown.title}
+							title={dropdown.title}
+							options={dropdown.options}
+							setSort={setSort}
+							setIsLoading={setIsLoading}
+						/>
+					))}
 				</div>
 			</div>
 		</section>

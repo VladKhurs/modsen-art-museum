@@ -1,45 +1,21 @@
 import './index.scss';
 
-import { FC, lazy, useEffect, useState } from 'react';
-
-import { fetchByPageLimitQuerySort } from '@/api/fetchRequests';
-import ErrorMessage from '@/components/UI/ErrorMessage';
+import { FC, lazy } from 'react';
 import { LIMITS, PAGES } from '@/constants/numbers';
-import { CardState } from '@/types/componentsTypes';
+import { useFetchOtherWorks } from '@/utils/hooks';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 const CardSmallLoader = lazy(() => import('@/components/UI/CardSmallLoader'));
+const ErrorMessage = lazy(() => import('@/components/UI/ErrorMessage'));
 
 const { OTHER_WORKS_LIMIT } = LIMITS;
 const { OTHER_WORKS_PAGE } = PAGES;
 
 const OtherWorks: FC = () => {
-	const [cards, setCards] = useState<CardState>(null);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
-
-	useEffect(() => {
-		const fetchCards = async () => {
-			try {
-				const cardsFetched = await fetchByPageLimitQuerySort({
-					page: OTHER_WORKS_PAGE,
-					limit: OTHER_WORKS_LIMIT,
-				});
-				if (cardsFetched) {
-					setCards(cardsFetched);
-					setIsLoading(false);
-				}
-			} catch (e) {
-				if (e instanceof Error) {
-					setError(e.message);
-				} else {
-					setError('An unknown error occurred');
-				}
-				console.error(e);
-			}
-		};
-		fetchCards();
-	}, []);
+	const { cards, isLoading, error } = useFetchOtherWorks({
+		page: OTHER_WORKS_PAGE,
+		limit: OTHER_WORKS_LIMIT,
+	});
 
 	return (
 		<section className="other-works">

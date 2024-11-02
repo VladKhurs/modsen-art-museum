@@ -1,36 +1,13 @@
 import './index.scss';
 
-import { FC, useState, useContext, useEffect, ChangeEvent } from 'react';
+import { FC } from 'react';
 
 import search from '@/assets/search.svg';
-import { Context } from '@/store/Context';
-import { ContextProps } from '@/types/componentsTypes';
-import { useDebounce } from '@/utils/functions';
-import { useFormik } from 'formik';
-import { validate, initialValues } from '@/utils/validateFormik';
+import { SearchInputProps } from '@/types/componentsTypes';
+import { useSearchForm } from '@/utils/useSearchForm';
 
-const SearchForm: FC = () => {
-	const { setQuery, setIsLoading } = useContext(Context) as ContextProps;
-	const [inputValue, setInputValue] = useState<string>('');
-	const debouncedInputValue = useDebounce(inputValue, 750);
-
-	const formik = useFormik({
-		initialValues,
-		validate,
-		onSubmit: (values) => {
-			setInputValue(values.searchQuery);
-		},
-	});
-
-	useEffect(() => {
-		setQuery(debouncedInputValue);
-		setIsLoading(true);
-	}, [debouncedInputValue]);
-
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		formik.handleChange(e);
-		setInputValue(e.target.value);
-	};
+const SearchInput: FC<SearchInputProps> = ({ setQuery, setIsLoading }) => {
+	const { formik, handleChange } = useSearchForm(setQuery, setIsLoading);
 
 	return (
 		<form onSubmit={formik.handleSubmit} className="search">
@@ -56,4 +33,4 @@ const SearchForm: FC = () => {
 	);
 };
 
-export default SearchForm;
+export default SearchInput;
