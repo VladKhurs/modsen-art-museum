@@ -1,14 +1,14 @@
 import './index.scss';
 
-import { FC, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, lazy, useRef, useState } from 'react';
 
 import bookmark from '@/assets/bookmark-orange.svg';
 import burger from '@/assets/burger.svg';
 import cross from '@/assets/cross.svg';
 import home from '@/assets/home.svg';
 import { ROUTES } from '@/constants/paths';
-import { useClickOutside } from '@/utils/functions';
+import { useClickOutside } from '@/utils/hooks';
+import CustomLink from '../CustomLink';
 
 const { HOME, FAVORITES } = ROUTES;
 
@@ -29,13 +29,8 @@ const BurgerMenu: FC = () => {
 			</button>
 			{isOpen && (
 				<nav>
-					<Link to={HOME} className="link">
-						<img src={home} alt="home" className="link-img" /> Home
-					</Link>
-					<Link to={FAVORITES} className="link">
-						<img src={bookmark} alt="bookmark" className="link-img" /> Your
-						favorites
-					</Link>
+					<CustomLink to={HOME} icon={home} label="Home" />
+					<CustomLink to={FAVORITES} icon={bookmark} label="Your favorites" />
 				</nav>
 			)}
 		</div>

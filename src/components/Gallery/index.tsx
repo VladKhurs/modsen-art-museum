@@ -1,18 +1,21 @@
 import './index.scss';
 
-import { FC, lazy, useContext } from 'react';
-
-import { Context } from '@/store/Context';
-import { ContextProps } from '@/types/componentsTypes';
-import { Card } from '@/types/componentsTypes';
+import { FC, lazy } from 'react';
+import { Card, GalleryProps } from '@/types/componentsTypes';
 
 const CardBig = lazy(() => import('@/components/UI/CardBig'));
 const CardBigLoader = lazy(() => import('@/components/UI/CardBigLoader'));
-const Pagination = lazy(() => import('@/components/UI/Pagination'));
+const Pagination = lazy(() => import('@/components/Pagination'));
 
-const Gallery: FC = () => {
-	const { isLoading, cards, limit } = useContext(Context) as ContextProps;
-
+const Gallery: FC<GalleryProps> = ({
+	page,
+	setPage,
+	limit,
+	setLimit,
+	isLoading,
+	setIsLoading,
+	cards,
+}) => {
 	return (
 		<section className="gallery">
 			<div className="heading">
@@ -36,7 +39,13 @@ const Gallery: FC = () => {
 							<CardBig card={card} key={`gallery-card-${card.id}`} />
 						))}
 					</div>
-					<Pagination />
+					<Pagination
+						page={page}
+						setPage={setPage}
+						limit={limit}
+						setLimit={setLimit}
+						setIsLoading={setIsLoading}
+					/>
 				</>
 			)}
 		</section>

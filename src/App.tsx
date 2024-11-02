@@ -1,60 +1,32 @@
-import React, { Suspense, useState } from 'react';
+import { lazy, FC, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Card, Sort } from '@/types/componentsTypes';
-
 import { ROUTES } from './constants/paths';
-import { Context } from './store/Context';
-import { SessionStorageUtils } from './utils/sessionStorageUtils';
 
-const HomePage = React.lazy(() => import('@/pages/HomePage'));
-const DetailInfoPage = React.lazy(() => import('@/pages/DetailInfoPage'));
-const FavoritesPage = React.lazy(() => import('@/pages/FavoritesPage'));
-const Header = React.lazy(() => import('@/components/Header'));
-const Footer = React.lazy(() => import('@/components/Footer'));
-const Loader = React.lazy(() => import('@/components/UI/Loader'));
+const HomePage = lazy(() => import('@/pages/HomePage'));
+const DetailInfoPage = lazy(() => import('@/pages/DetailInfoPage'));
+const FavoritesPage = lazy(() => import('@/pages/FavoritesPage'));
+const Header = lazy(() => import('@/components/Header'));
+const Footer = lazy(() => import('@/components/Footer'));
+const Loader = lazy(() => import('@/components/UI/Loader'));
+const { DETAIL_INFO, FAVORITES, DEFAULT } = ROUTES;
 
-const App: React.FC = () => {
-	const [page, setPage] = useState<number>(1);
-	const [limit, setLimit] = useState<number>(3);
-	const [query, setQuery] = useState<string>('');
-	const [sort, setSort] = useState<Sort | null>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [cards, setCards] = useState<Card[] | null>(null);
-	const [detailInfo, setDetailInfo] = useState<Card | null>(null);
+const appRoutes = [
+	{ path: DEFAULT, element: <HomePage /> },
+	{ path: DETAIL_INFO, element: <DetailInfoPage /> },
+	{ path: FAVORITES, element: <FavoritesPage /> },
+];
 
-	if (SessionStorageUtils.getItem('favorites') === null) {
-		SessionStorageUtils.setItem('favorites', []);
-	}
-
+const App: FC = () => {
 	return (
 		<BrowserRouter>
 			<Suspense fallback={<Loader />}>
 				<Header />
-				<Context.Provider
-					value={{
-						page,
-						setPage,
-						query,
-						setQuery,
-						sort,
-						setSort,
-						isLoading,
-						setIsLoading,
-						cards,
-						setCards,
-						detailInfo,
-						setDetailInfo,
-						limit,
-						setLimit,
-					}}
-				>
-					<Routes>
-						<Route path="*" element={<HomePage />} />
-						<Route path={ROUTES.DETAIL_INFO} element={<DetailInfoPage />} />
-						<Route path={ROUTES.FAVORITES} element={<FavoritesPage />} />
-					</Routes>
-				</Context.Provider>
+				<Routes>
+					{appRoutes.map(({ path, element }) => (
+						<Route key={path} path={path} element={element} />
+					))}
+				</Routes>
 				<Footer />
 			</Suspense>
 		</BrowserRouter>

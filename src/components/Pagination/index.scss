@@ -1,0 +1,15 @@
+@import '@/styles/theme.scss';
+
+.pagination {
+	display: flex;
+	gap: 30px;
+	width: 100%;
+	justify-content: end;
+	position: relative;
+	top: -38px;
+
+	@media (max-width: $mobile-width) {
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+}

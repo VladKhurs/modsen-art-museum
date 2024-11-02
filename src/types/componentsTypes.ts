@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export interface Card {
 	id: number;
 	title: string;
@@ -14,23 +16,6 @@ export interface Card {
 export interface Sort {
 	sortBy?: string;
 	order?: string;
-}
-
-export interface ContextProps {
-	page: number;
-	setPage: React.Dispatch<React.SetStateAction<number>>;
-	limit: number;
-	setLimit: React.Dispatch<React.SetStateAction<number>>;
-	query: string;
-	setQuery: React.Dispatch<React.SetStateAction<string>>;
-	sort: Sort | null;
-	setSort: React.Dispatch<React.SetStateAction<Sort | null>>;
-	isLoading: boolean;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-	cards: Card[] | null;
-	setCards: React.Dispatch<React.SetStateAction<Card[] | null>>;
-	detailInfo: Card | null;
-	setDetailInfo: React.Dispatch<React.SetStateAction<Card | null>>;
 }
 
 export type CardState = Card[] | null;
@@ -52,8 +37,73 @@ export interface CardSmallProps {
 export interface DropdownProps {
 	title: string;
 	options: { label: string; sortBy: string; order: string }[];
+	setSort: Dispatch<SetStateAction<Sort | null>>;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface ErrorMessageProps {
 	message: string;
+}
+
+export interface GalleryProps {
+	page: number;
+	setPage: Dispatch<SetStateAction<number>>;
+	limit: number;
+	setLimit: Dispatch<SetStateAction<number>>;
+	isLoading: boolean;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
+	cards: Card[] | null;
+}
+
+export interface PaginationProps {
+	page: number;
+	setPage: Dispatch<SetStateAction<number>>;
+	limit: number;
+	setLimit: Dispatch<SetStateAction<number>>;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface SearchSectionProps {
+	setQuery: Dispatch<SetStateAction<string>>;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
+	setSort: Dispatch<SetStateAction<Sort | null>>;
+}
+
+export interface SearchInputProps {
+	setQuery: Dispatch<SetStateAction<string>>;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface SearchInputProps {
+	setQuery: Dispatch<SetStateAction<string>>;
+	setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface CustomLinkProps {
+	to: string;
+	icon: string;
+	label: string;
+}
+
+export interface PaginateArrowsProps {
+	page: number;
+	setPage: (page: number) => void;
+	setIsLoading: (isLoading: boolean) => void;
+}
+
+export interface PaginateByProps {
+	limit: number;
+	setLimit: (limit: number) => void;
+	setIsLoading: (isLoading: boolean) => void;
+}
+
+export interface useFetchOtherWorksParams {
+	page: number;
+	limit: number;
+}
+
+export interface DropdownHandlersParams {
+	setSort: (sort: Sort) => void;
+	setIsLoading: (isLoading: boolean) => void;
+	handleDropdownClick: () => void;
 }

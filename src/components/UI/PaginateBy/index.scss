@@ -1,0 +1,28 @@
+@import '@/styles/theme.scss';
+
+.paginate-by {
+	position: relative;
+	display: inline-block;
+	margin: 0 $large-spacing 0 0;
+
+	button {
+		cursor: pointer;
+		min-width: 170px;
+		border-radius: $small-border-radius;
+		background-color: rgba($color: $color-black, $alpha: 0.05);
+		height: 30px;
+	}
+
+	div {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		width: 170px;
+		z-index: 1;
+
+		button {
+			border-top: $small-border-width $border-style
+				rgba($color: $color-black, $alpha: 0.5);
+		}
+	}
+}

@@ -1,7 +1,7 @@
 import './index.scss';
 
 import { FC, lazy } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import bookmark from '@/assets/bookmark-orange.svg';
 import home from '@/assets/home.svg';
@@ -9,6 +9,8 @@ import logo from '@/assets/logo.svg';
 import { ROUTES } from '@/constants/paths';
 
 const BurgerMenu = lazy(() => import('@/components/UI/BurgerMenu'));
+const CustomLink = lazy(() => import('@/components/UI/CustomLink'));
+
 const { HOME, FAVORITES } = ROUTES;
 
 const Header: FC = () => {
@@ -25,21 +27,15 @@ const Header: FC = () => {
 				</div>
 				<div className="links">
 					{location.pathname === HOME ? (
-						<Link to={FAVORITES} className="link link-single">
-							<img src={bookmark} alt="bookmark" />
-							Your favorites
-						</Link>
+						<CustomLink to={FAVORITES} icon={bookmark} label="Your favorites" />
 					) : (
 						<>
-							<Link to={HOME} className="link">
-								<img src={home} alt="home" />
-								Home
-							</Link>
-
-							<Link to={FAVORITES} className="link">
-								<img src={bookmark} alt="bookmark" />
-								Your favorites
-							</Link>
+							<CustomLink to={HOME} icon={home} label="Home" />
+							<CustomLink
+								to={FAVORITES}
+								icon={bookmark}
+								label="Your favorites"
+							/>
 						</>
 					)}
 				</div>

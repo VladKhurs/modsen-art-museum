@@ -1,26 +1,16 @@
 import './index.scss';
 
-import { FC, lazy, useEffect, useState } from 'react';
+import { FC, lazy } from 'react';
 
 import favorite from '@/assets/favorites-danger.svg';
+import { useFavorites } from '@/utils/hooks';
 import { Card } from '@/types/componentsTypes';
-import { SessionStorageUtils } from '@/utils/sessionStorageUtils';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 
 const FavoritesPage: FC = () => {
-	const [favorites, setFavorites] = useState<Card[]>([]);
+	const { favorites, updateFavorites } = useFavorites();
 
-	useEffect(() => {
-		const favoritesFromStorage = SessionStorageUtils.getItem('favorites') || [];
-
-		setFavorites(favoritesFromStorage);
-	}, []);
-
-	const updateFavorites = () => {
-		const updatedFavorites = SessionStorageUtils.getItem('favorites') || [];
-		setFavorites(updatedFavorites);
-	};
 	return (
 		<section className="favorites">
 			<div className="container">
