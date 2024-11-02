@@ -1,9 +1,10 @@
+import { useFormik } from 'formik';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { z } from 'zod';
 
 import { QUERIES } from '@/constants/numbers';
-import { ChangeEvent, useEffect, useState } from 'react';
+
 import { useDebounce } from './hooks';
-import { useFormik } from 'formik';
 
 const { MIN_QUERY } = QUERIES;
 

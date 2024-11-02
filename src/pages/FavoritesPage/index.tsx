@@ -3,8 +3,8 @@ import './index.scss';
 import { FC, lazy } from 'react';
 
 import favorite from '@/assets/favorites-danger.svg';
-import { useFavorites } from '@/utils/hooks';
 import { Card } from '@/types/componentsTypes';
+import { useFavorites } from '@/utils/hooks';
 
 const CardSmall = lazy(() => import('@/components/UI/CardSmall'));
 

@@ -1,5 +1,7 @@
 import './index.scss';
+
 import { FC } from 'react';
+
 import { LIMITS } from '@/constants/numbers';
 import { PaginateByProps } from '@/types/componentsTypes';
 import { useDropdown } from '@/utils/hooks';

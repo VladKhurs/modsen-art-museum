@@ -4,7 +4,7 @@ import { FC, MouseEvent } from 'react';
 
 import favoritesImg from '@/assets/favorites-danger.svg';
 import { ButtonFavoriteProps } from '@/types/componentsTypes';
-import { useFavoriteStatus, useChangeFavorite } from '@/utils/hooks';
+import { useChangeFavorite, useFavoriteStatus } from '@/utils/hooks';
 
 const ButtonFavorite: FC<ButtonFavoriteProps> = ({ card, updateFavorites }) => {
 	const [isFavorite, setIsFavorite] = useFavoriteStatus(card);
@@ -16,13 +16,15 @@ const ButtonFavorite: FC<ButtonFavoriteProps> = ({ card, updateFavorites }) => {
 		updateFavorites
 	);
 
+	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+		e.stopPropagation();
+		changeFavorite();
+	};
+
 	return (
 		<button
 			className={isFavorite ? 'button button--active' : 'button'}
-			onClick={(e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
-				e.stopPropagation();
-				changeFavorite();
-			}}
+			onClick={handleClick}
 		>
 			<img src={favoritesImg} alt="favorites" />
 		</button>

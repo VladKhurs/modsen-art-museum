@@ -2,8 +2,8 @@ import './index.scss';
 
 import { FC, lazy, useState } from 'react';
 
-import { Sort } from '@/types/componentsTypes';
 import { LIMITS, PAGES } from '@/constants/numbers';
+import { Sort } from '@/types/componentsTypes';
 import { useFetchHome } from '@/utils/hooks';
 
 const Gallery = lazy(() => import('@/components/Gallery'));
