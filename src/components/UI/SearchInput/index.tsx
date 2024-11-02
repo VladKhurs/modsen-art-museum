@@ -1,86 +1,53 @@
 import './index.scss';
 
-import { useFormik } from 'formik';
-import { FC, useContext, useEffect, useState } from 'react';
-import { z } from 'zod';
+import { FC, useState, useContext, useEffect, ChangeEvent } from 'react';
 
 import search from '@/assets/search.svg';
-import { QUERIES } from '@/constants/numbers';
 import { Context } from '@/store/Context';
 import { ContextProps } from '@/types/componentsTypes';
 import { useDebounce } from '@/utils/functions';
+import { useFormik } from 'formik';
+import { validate, initialValues } from '@/utils/validateFormik';
 
-const { MIN_QUERY } = QUERIES;
-
-const SearchInput: FC = () => {
-	const { query, setQuery, setIsLoading } = useContext(Context) as ContextProps;
-	const [isEmpty, setIsEmpty] = useState(false);
-	const [lastQuery, setLastQuery] = useState(query);
-	const [inputValue, setInputValue] = useState('');
-
-	const searchSchema = z.object({
-		query: z
-			.string()
-			.min(MIN_QUERY, { message: 'Search query cannot be empty' }),
-	});
-
-	const validate = (values: { query: string }) => {
-		const result = searchSchema.safeParse(values);
-		if (result.success) return {};
-
-		return result.error.flatten().fieldErrors;
-	};
-
+const SearchForm: FC = () => {
+	const { setQuery, setIsLoading } = useContext(Context) as ContextProps;
+	const [inputValue, setInputValue] = useState<string>('');
 	const debouncedInputValue = useDebounce(inputValue, 750);
 
-	useEffect(() => {
-		if (debouncedInputValue && inputValue !== lastQuery) {
-			setQuery(inputValue);
-			setIsLoading(true);
-		}
-	}, [debouncedInputValue]);
-
 	const formik = useFormik({
-		initialValues: {
-			query: '',
-		},
+		initialValues,
 		validate,
 		onSubmit: (values) => {
-			if (values.query !== lastQuery) {
-				setQuery(values.query);
-				setIsLoading(true);
-				setLastQuery(values.query);
-			}
+			setInputValue(values.searchQuery);
 		},
 	});
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		formik.handleSubmit(e);
-		if (formik.touched.query && formik.errors.query) {
-			setIsEmpty(true);
-		} else {
-			setIsEmpty(false);
-		}
-	};
+	useEffect(() => {
+		setQuery(debouncedInputValue);
+		setIsLoading(true);
+	}, [debouncedInputValue]);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		formik.handleChange(e);
 		setInputValue(e.target.value);
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="search">
+		<form onSubmit={formik.handleSubmit} className="search">
 			<input
 				type="search"
-				name="query"
-				placeholder={
-					isEmpty
-						? 'Search query cannot be empty'
-						: 'Search Art, Artist, Work...'
-				}
+				name="searchQuery"
+				value={formik.values.searchQuery}
 				onChange={handleChange}
 				onBlur={formik.handleBlur}
-				value={formik.values.query}
+				placeholder={
+					formik.errors.searchQuery && formik.touched.searchQuery
+						? formik.errors.searchQuery
+						: 'Search Art, Artist, Work...'
+				}
+				className={
+					formik.errors.searchQuery && formik.touched.searchQuery ? 'error' : ''
+				}
 			/>
 			<button type="submit">
 				<img src={search} alt="search" />
@@ -89,4 +56,4 @@ const SearchInput: FC = () => {
 	);
 };
 
-export default SearchInput;
+export default SearchForm;
