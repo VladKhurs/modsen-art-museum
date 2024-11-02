@@ -1,4 +1,5 @@
 import { Card } from '@/types/componentsTypes';
+
 import { SessionStorageUtils } from './sessionStorageUtils';
 
 export const updateFavoritesInStorage = (card: Card, isFavorite: boolean) => {

@@ -1,6 +1,7 @@
 import './index.scss';
 
 import { FC, lazy } from 'react';
+
 import { LIMITS, PAGES } from '@/constants/numbers';
 import { useFetchOtherWorks } from '@/utils/hooks';
 

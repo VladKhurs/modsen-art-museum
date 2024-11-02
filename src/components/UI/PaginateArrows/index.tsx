@@ -1,6 +1,7 @@
 import './index.scss';
 
 import { FC } from 'react';
+
 import arrowLeft from '@/assets/arrow-left.svg';
 import arrowRight from '@/assets/arrow-right.svg';
 import { PAGINATES } from '@/constants/numbers';

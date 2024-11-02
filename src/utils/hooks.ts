@@ -1,4 +1,9 @@
+import { RefObject, useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { fetchByPageLimitQuerySort } from '@/api/fetchRequests';
+import { LIMITS } from '@/constants/numbers';
+import { ROUTES } from '@/constants/paths';
 import {
 	Card,
 	CardState,
@@ -6,17 +11,9 @@ import {
 	Sort,
 	useFetchOtherWorksParams,
 } from '@/types/componentsTypes';
-import {
-	useEffect,
-	useState,
-	RefObject,
-	useCallback,
-} from 'react';
-import { SessionStorageUtils } from './sessionStorageUtils';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/constants/paths';
+
 import { updateFavoritesInStorage } from './helpers';
-import { LIMITS } from '@/constants/numbers';
+import { SessionStorageUtils } from './sessionStorageUtils';
 
 export function useDebounce(value: string, delay: number) {
 	const [debouncedValue, setDebouncedValue] = useState(value);
@@ -180,7 +177,7 @@ export const useChangeFavorite = (
 	card: Card,
 	isFavorite: boolean,
 	setIsFavorite: (isFavorite: boolean) => void,
-	updateFavorites: () => void
+	updateFavorites?: () => void
 ) => {
 	return useCallback(() => {
 		updateFavoritesInStorage(card, isFavorite);

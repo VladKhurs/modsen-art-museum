@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { FC, lazy, useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 
 import bookmark from '@/assets/bookmark-orange.svg';
 import burger from '@/assets/burger.svg';
@@ -8,6 +8,7 @@ import cross from '@/assets/cross.svg';
 import home from '@/assets/home.svg';
 import { ROUTES } from '@/constants/paths';
 import { useClickOutside } from '@/utils/hooks';
+
 import CustomLink from '../CustomLink';
 
 const { HOME, FAVORITES } = ROUTES;

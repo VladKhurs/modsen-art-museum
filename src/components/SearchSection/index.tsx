@@ -1,8 +1,9 @@
-import { SearchSectionProps } from '@/types/componentsTypes';
 import './index.scss';
 
 import { FC, lazy } from 'react';
+
 import { SORT_OPTIONS } from '@/constants/sortOptions';
+import { SearchSectionProps } from '@/types/componentsTypes';
 
 const SearchInput = lazy(() => import('@/components/UI/SearchInput'));
 const Dropdown = lazy(() => import('@/components/UI/DropDown'));

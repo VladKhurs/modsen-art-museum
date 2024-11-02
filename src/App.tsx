@@ -1,4 +1,4 @@
-import { lazy, FC, Suspense } from 'react';
+import { FC, lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { ROUTES } from './constants/paths';

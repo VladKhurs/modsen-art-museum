@@ -1,6 +1,7 @@
 import './index.scss';
 
 import { FC, lazy } from 'react';
+
 import { Card, GalleryProps } from '@/types/componentsTypes';
 
 const CardBig = lazy(() => import('@/components/UI/CardBig'));

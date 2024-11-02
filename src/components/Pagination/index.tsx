@@ -2,10 +2,9 @@ import './index.scss';
 
 import { FC } from 'react';
 
-import { PaginationProps } from '@/types/componentsTypes';
-
-import PaginateBy from '@/components/UI/PaginateBy';
 import PaginateArrows from '@/components/UI/PaginateArrows';
+import PaginateBy from '@/components/UI/PaginateBy';
+import { PaginationProps } from '@/types/componentsTypes';
 
 const Pagination: FC<PaginationProps> = ({
 	page,
