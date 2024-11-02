@@ -23,6 +23,10 @@
 		color: rgba($color: $color-black, $alpha: 0.5);
 	}
 
+	input.error::placeholder {
+		color: $color-danger;
+	  }
+
 	input[type='search']::-webkit-search-cancel-button {
 		-webkit-appearance: none;
 		height: 23px;
@@ -35,3 +39,4 @@
 		width: 85vw;
 	}
 }
+  
